@@ -1,17 +1,7 @@
-import { RiExchangeFill } from 'react-icons/ri'
-import TextEditor from '../../../components/text-editor'
-import { Container } from './styles'
+import EditorComponent from '../editor-component'
 
 const ExtraInformation: React.FC = () => {
-  return (
-    <Container>
-      <h2>
-        <RiExchangeFill />
-        EXTRA INFORMATION
-      </h2>
-      <TextEditor />
-    </Container>
-  )
+  return <EditorComponent title={'EXTRA INFORMATION'} />
 }
 
 export default ExtraInformation

@@ -1,17 +1,7 @@
-import { RiExchangeFill } from 'react-icons/ri'
-import TextEditor from '../../../components/text-editor'
-import { Container } from './styles'
+import EditorComponent from '../editor-component'
 
 const InterviewFocusGroup: React.FC = () => {
-  return (
-    <Container>
-      <h2>
-        <RiExchangeFill />
-        INTERVIEW & FOCUS GROUP
-      </h2>
-      <TextEditor />
-    </Container>
-  )
+  return <EditorComponent title={'INTERVIEW & FOCUS GROUP'} />
 }
 
 export default InterviewFocusGroup

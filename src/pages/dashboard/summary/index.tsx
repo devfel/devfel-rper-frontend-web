@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { RiExchangeFill } from 'react-icons/ri'
 import Carousel from './carousel'
+import Info from './info'
 import {
   Container,
   Team,
   PlaceholderLoading,
-  Info,
   Progress,
   ProgressBarContainer,
   ProgressBar,
@@ -32,12 +32,7 @@ const Summary: React.FC = () => {
           <strong>Name Surname (Coordinator)</strong>
         </article>
       </Team>
-      <Info>
-        <h3>Information and Highlight</h3>
-        <p>Last Update: 20/02/2021</p>
-        <p>Created on: 13/02/2019</p>
-        <img src="https://picsum.photos/250/380" alt="" />
-      </Info>
+      <Info />
       <Progress>
         <h3>RPER Application Progress</h3>
         <ProgressBarContainer>

@@ -1,12 +1,24 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import SunEditor from 'suneditor-react'
 import SunEditorCore, { Core } from 'suneditor/src/lib/core'
 import plugins from 'suneditor/src/plugins'
 import 'suneditor/dist/css/suneditor.min.css'
 import { Container } from './styles'
 
-const TextEditor = () => {
+interface TextEditorProps {
+  isReadOnly: boolean
+  updateReadOnlyFunction: (value: boolean) => void
+}
+
+const TextEditor = ({
+  isReadOnly,
+  updateReadOnlyFunction,
+}: TextEditorProps) => {
   const editor = useRef<SunEditorCore>()
+
+  useEffect(() => {
+    editor.current?.readOnly(isReadOnly)
+  }, [isReadOnly])
 
   const saveToDB = {
     name: 'saveToDB',
@@ -29,6 +41,7 @@ const TextEditor = () => {
 
     action: function () {
       console.log(editor.current?.core.getContents(true))
+      updateReadOnlyFunction(true)
     },
   }
 

@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
       : setToggleFinalization(true)
   }, [toggleFinalization])
 
-  const diselectOtherButtons = useCallback(
+  const deselectOtherButtons = useCallback(
     (currentButton: string) => {
       if (selectedButton !== currentButton) {
         setSelectedButton(currentButton)
@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
 
   const handleClick = useCallback(
     (button: string) => {
-      diselectOtherButtons(button)
+      deselectOtherButtons(button)
       navigate(`/dashboard/${button}/${params.id}`)
     },
     [selectedButton],
@@ -304,13 +304,13 @@ const Dashboard: React.FC = () => {
                   Final Considerations
                 </LinkBtn>
               </SectionsBtn>
-              <SectionsBtn isSelected={selectedButton === 'acknoledgment'}>
+              <SectionsBtn isSelected={selectedButton === 'acknowledgment'}>
                 <IconBtn>
                   <RiExchangeFill />
                 </IconBtn>
                 <StatusButton />
-                <LinkBtn onClick={() => handleClick('acknoledgment')}>
-                  Acknoledgment
+                <LinkBtn onClick={() => handleClick('acknowledgment')}>
+                  Acknowledgment
                 </LinkBtn>
               </SectionsBtn>
               <SectionsBtn

@@ -138,34 +138,6 @@ export const PlaceholderLoading = styled.div`
   }
 `
 
-export const Info = styled.div`
-  padding: 16px 24px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.25);
-  grid-area: info;
-
-  p {
-    font-size: 1.4rem;
-    color: #ff0042;
-    line-height: 24px;
-    margin-top: 20px;
-
-    & + p {
-      margin-top: 0px;
-      margin-bottom: 20px;
-    }
-  }
-
-  img {
-    width: 250px;
-    height: 380px;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;
-  }
-`
-
 export const Progress = styled.div`
   padding: 16px 24px;
   background-color: #ffffff;

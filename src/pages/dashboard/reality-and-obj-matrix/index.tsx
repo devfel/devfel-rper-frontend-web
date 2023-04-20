@@ -1,17 +1,7 @@
-import { RiExchangeFill } from 'react-icons/ri'
-import TextEditor from '../../../components/text-editor'
-import { Container } from './styles'
+import EditorComponent from '../editor-component'
 
 const RealityAndObjMatrix: React.FC = () => {
-  return (
-    <Container>
-      <h2>
-        <RiExchangeFill />
-        REALITY AND OBJ. MATRIX
-      </h2>
-      <TextEditor />
-    </Container>
-  )
+  return <EditorComponent title={'REALITY AND OBJ. MATRIX'} />
 }
 
 export default RealityAndObjMatrix

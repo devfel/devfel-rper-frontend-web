@@ -1,17 +1,7 @@
-import { RiExchangeFill } from 'react-icons/ri'
-import TextEditor from '../../../components/text-editor'
-import { Container } from './styles'
+import EditorComponent from '../editor-component'
 
 const TransectWalk: React.FC = () => {
-  return (
-    <Container>
-      <h2>
-        <RiExchangeFill />
-        TRANSECT WALK
-      </h2>
-      <TextEditor />
-    </Container>
-  )
+  return <EditorComponent title={'TRANSECT WALK'} />
 }
 
 export default TransectWalk

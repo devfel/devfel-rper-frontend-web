@@ -1,17 +1,7 @@
-import { RiExchangeFill } from 'react-icons/ri'
-import TextEditor from '../../../components/text-editor'
-import { Container } from './styles'
+import EditorComponent from '../editor-component'
 
 const SeasonalCalendar: React.FC = () => {
-  return (
-    <Container>
-      <h2>
-        <RiExchangeFill />
-        SEASONAL CALENDAR
-      </h2>
-      <TextEditor />
-    </Container>
-  )
+  return <EditorComponent title={'SEASONAL CALENDAR'} />
 }
 
 export default SeasonalCalendar

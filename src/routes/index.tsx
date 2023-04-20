@@ -28,7 +28,7 @@ import RealityAndObjMatrix from '../pages/dashboard/reality-and-obj-matrix'
 import ElectionOfPriorities from '../pages/dashboard/election-of-priorities'
 import ExtraInformation from '../pages/dashboard/extra-information'
 import FinalConsiderations from '../pages/dashboard/final-considerations'
-import Acknoledgment from '../pages/dashboard/acknoledgment'
+import Acknowledgment from '../pages/dashboard/acknowledgment'
 import GenerateFinalReport from '../pages/dashboard/generate-final-report'
 import NotFoundPage from '../pages/not-found-page'
 
@@ -123,8 +123,8 @@ function Router() {
               element={<FinalConsiderations />}
             />
             <Route
-              path="/dashboard/acknoledgment/:id"
-              element={<Acknoledgment />}
+              path="/dashboard/acknowledgment/:id"
+              element={<Acknowledgment />}
             />
             <Route
               path="/dashboard/generate-final-report/:id"
