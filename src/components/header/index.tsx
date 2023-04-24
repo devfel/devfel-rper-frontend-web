@@ -16,10 +16,12 @@ const Header: React.FC<HeaderProp> = ({ btnType }) => {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img
-          src={SmLogo}
-          alt="Rapid Participatory Emancipatory Research logo"
-        />
+        <Link to="/rper-list">
+          <img
+            src={SmLogo}
+            alt="Rapid Participatory Emancipatory Research logo"
+          />
+        </Link>
         <ProfileInfo />
       </HeaderContent>
       <ButtonType btnType={btnType}>

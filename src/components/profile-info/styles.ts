@@ -5,6 +5,11 @@ export const Container = styled.div`
   align-items: center;
   gap: 13px;
 
+  img {
+    width: 64px;
+    height: 64px;
+  }
+
   a {
     text-decoration: none;
     transition: all 0.2s;
