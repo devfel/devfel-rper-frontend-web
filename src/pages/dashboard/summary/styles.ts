@@ -85,6 +85,17 @@ export const Team = styled.div`
   grid-area: team;
 `
 
+export const Avatar = styled.div`
+  min-width: 56px;
+  min-height: 56px;
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+`
+
 export const PlaceholderLoading = styled.div`
   min-width: 56px;
   min-height: 56px;

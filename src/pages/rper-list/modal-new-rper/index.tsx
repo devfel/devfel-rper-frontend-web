@@ -69,7 +69,7 @@ const NewRperModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
           description: 'You can now work on it',
         })
 
-        navigate(`/dashboard/${rper_id}`)
+        navigate(`/dashboard/summary/${rper_id}`)
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)

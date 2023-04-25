@@ -9,7 +9,7 @@ const Acknoledgment: React.FC = () => {
         <RiExchangeFill />
         ACKNOLEDGMENT
       </h2>
-      <TextEditor />
+      <TextEditor isReadOnly updateReadOnlyFunction={() => false} />
     </Container>
   )
 }

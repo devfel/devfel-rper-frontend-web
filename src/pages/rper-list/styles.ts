@@ -85,7 +85,7 @@ export const SortBtn = styled.button<SortProps>`
   background-color: #f2f4f8;
   border: 0;
   padding: 16px;
-  border-radius: 12px;
+  border-radius: ${props => (props.toggle ? '12px 12px 0 0' : '12px')};
   position: relative;
   transition: background-color 0.3s;
 
@@ -112,7 +112,7 @@ export const SortBtn = styled.button<SortProps>`
 `
 
 export const SortList = styled.ul<SortProps>`
-  width: 90%;
+  width: 100%;
   font-size: 1.8rem;
   color: #433889;
   position: absolute;

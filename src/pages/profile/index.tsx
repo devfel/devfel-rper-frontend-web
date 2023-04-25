@@ -159,13 +159,7 @@ const Profile: React.FC = () => {
           initialData={{ name: user.name, email: user.email }}
         >
           <h1>My Profile</h1>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Name"
-            icon={FiUser}
-            disabled
-          />
+          <Input type="text" name="name" placeholder="Name" icon={FiUser} />
           <Input
             type="text"
             name="email"

@@ -71,6 +71,7 @@ export const HeaderContainer = styled.header`
 
   img {
     display: none;
+    cursor: pointer;
   }
 
   @media screen and (min-width: 720px) {

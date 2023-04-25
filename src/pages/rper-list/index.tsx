@@ -84,16 +84,21 @@ const RperList: React.FC = () => {
     setToggleSort(false)
   }, [filterdRpers])
 
-  const search = useCallback(() => {
-    const searchWord = inputRef.current?.value
-    const filter = rpers?.filter(rper => {
-      if (searchWord) {
-        return rper.name.toLowerCase().includes(searchWord.toLowerCase())
+  const search = useCallback(
+    (event: React.KeyboardEvent<HTMLElement>) => {
+      if (event.key === 'Enter') {
+        const searchWord = inputRef.current?.value
+        const filter = rpers?.filter(rper => {
+          if (searchWord) {
+            return rper.name.toLowerCase().includes(searchWord.toLowerCase())
+          }
+          return rpers
+        }) as Rper[]
+        setFilterdRpers(filter)
       }
-      return rpers
-    }) as Rper[]
-    setFilterdRpers(filter)
-  }, [rpers])
+    },
+    [rpers],
+  )
 
   return (
     <>
@@ -115,8 +120,12 @@ const RperList: React.FC = () => {
         </SortContainer>
         <InputContainer>
           <FiSearch />
-          <input ref={inputRef} type="text" placeholder="Search" />
-          <button onClick={search}>Search</button>
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Search"
+            onKeyDown={search}
+          />
         </InputContainer>
 
         {filterdRpers?.map((rper: Rper) => (
