@@ -8,13 +8,19 @@ import { Container } from './styles'
 interface TextEditorProps {
   isReadOnly: boolean
   updateReadOnlyFunction: (value: boolean) => void
+  handleTextChange: (value: any) => void
+  content: string
 }
 
 const TextEditor = ({
   isReadOnly,
   updateReadOnlyFunction,
+  handleTextChange,
+  content,
 }: TextEditorProps) => {
   const editor = useRef<SunEditorCore>()
+
+  console.log(content)
 
   useEffect(() => {
     editor.current?.readOnly(isReadOnly)
@@ -53,7 +59,6 @@ const TextEditor = ({
     <Container>
       <SunEditor
         getSunEditorInstance={getSunEditorInstance}
-        defaultValue={''}
         height="100vh"
         setOptions={{
           plugins: { ...{ saveToDB }, ...plugins },
@@ -71,6 +76,8 @@ const TextEditor = ({
           ],
           formats: ['h1', 'h2', 'h3', 'p', 'div', 'blockquote', 'pre'],
         }}
+        onChange={handleTextChange}
+        setContents={content}
       />
     </Container>
   )

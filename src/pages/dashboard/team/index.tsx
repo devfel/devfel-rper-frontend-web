@@ -52,6 +52,19 @@ const Team: React.FC = () => {
     }
   }
 
+  const handleMembers = async (updatedMembersIds: string[]) => {
+    try {
+      await api.post('rpers/members', {
+        rper_id: rper?.rper_id,
+        users_ids: updatedMembersIds,
+      })
+
+      await getRper()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     getRper()
     getUsers()
@@ -71,9 +84,8 @@ const Team: React.FC = () => {
   )
 
   const handleRemoveMember = useCallback(
-    (user: string) => {
+    (userName: string, userId: string) => {
       setTypeOfConfirmationModal('remove')
-      setTransferCoord(user)
       confirmationModalRef.current?.showModal()
     },
     [confirmationModalRef],
@@ -132,7 +144,9 @@ const Team: React.FC = () => {
                               <BiCrown />
                             </PromoteToCoordinatorButton>
                             <RemoveMemberButton
-                              onClick={() => handleRemoveMember(member.name)}
+                              onClick={() =>
+                                handleRemoveMember(member.user_id, member.name)
+                              }
                             >
                               <IoMdRemove />
                             </RemoveMemberButton>
@@ -144,7 +158,12 @@ const Team: React.FC = () => {
                 : null}
             </TeamContainer>
 
-            <AddTeamModal ref={usersModalRef} rper={rper} users={users} />
+            <AddTeamModal
+              ref={usersModalRef}
+              rper={rper}
+              users={users}
+              handleMembers={handleMembers}
+            />
             <ConfirmationActionModal
               ref={confirmationModalRef}
               typeOfModel={typeOfConfirmationModal}

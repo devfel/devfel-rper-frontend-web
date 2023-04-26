@@ -20,5 +20,14 @@ export const Container = styled.div`
     width: 176px;
     height: 48px;
     margin-left: 30px;
+
+    :disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
   }
+`
+
+export const ActionButtons = styled.div`
+  display: flex;
 `
