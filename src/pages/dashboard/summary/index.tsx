@@ -53,30 +53,32 @@ const Summary: React.FC = () => {
             <Team>
               <h3>Team</h3>
               <article>
-                <div>
-                  {rper?.coordinator.avatar_url ? (
-                    <Avatar>
-                      <img
-                        src={rper?.coordinator.avatar_url}
-                        alt="Avatar do coordenador"
-                      />
-                    </Avatar>
-                  ) : (
-                    <PlaceholderLoading>
-                      <div></div>
-                      <div></div>
-                    </PlaceholderLoading>
-                  )}
-                </div>
-                <strong>{rper?.coordinator.name} (Coordinator)</strong>
+                <section>
+                  <div>
+                    {rper?.coordinator.avatar_url ? (
+                      <Avatar>
+                        <img
+                          src={rper?.coordinator.avatar_url}
+                          alt="Avatar do coordenador"
+                        />
+                      </Avatar>
+                    ) : (
+                      <PlaceholderLoading>
+                        <div></div>
+                        <div></div>
+                      </PlaceholderLoading>
+                    )}
+                  </div>
+                  <strong>{rper?.coordinator.name} (Coordinator)</strong>
+                </section>
                 {rper?.members && rper?.members.length > 0
                   ? rper?.members.map(member => (
-                      <article key={member.id}>
+                      <section key={member.user_id}>
                         <div>
-                          {rper?.coordinator.avatar_url ? (
+                          {member.avatar_url ? (
                             <Avatar>
                               <img
-                                src={rper?.coordinator.avatar_url}
+                                src={member.avatar_url}
                                 alt="Avatar do coordenador"
                               />
                             </Avatar>
@@ -87,8 +89,8 @@ const Summary: React.FC = () => {
                             </PlaceholderLoading>
                           )}
                         </div>
-                        <strong>{rper?.coordinator.name}</strong>
-                      </article>
+                        <strong>{member.name}</strong>
+                      </section>
                     ))
                   : null}
               </article>

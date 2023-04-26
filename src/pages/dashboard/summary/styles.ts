@@ -67,10 +67,20 @@ export const Team = styled.div`
 
   article {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+
     gap: 32px;
     border-bottom: 1px solid #f0edee;
     padding: 20px;
+
+    > section {
+      display: flex;
+      align-items: center;
+
+      strong {
+        margin-left: 1rem;
+      }
+    }
 
     > div {
       width: 56px;

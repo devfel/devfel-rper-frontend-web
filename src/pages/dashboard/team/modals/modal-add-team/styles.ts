@@ -166,3 +166,13 @@ export const PlaceholderLoading = styled.div`
     }
   }
 `
+export const Avatar = styled.div`
+  min-width: 56px;
+  min-height: 56px;
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+`
