@@ -1,4 +1,5 @@
-import { forwardRef, useCallback, useEffect } from 'react'
+/* eslint-disable indent */
+import { forwardRef, useCallback, useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
 import Button from '../../../../../components/button'
 import {
@@ -6,13 +7,30 @@ import {
   PlaceholderLoading,
   TeamContainer,
   ButtonContainer,
+  Avatar,
 } from './styles'
+import { Rper, User } from '../../../types'
 
-const AddTeamModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
-  props,
-  ref,
-) => {
+interface AddTeamModalProps {
+  rper: Rper | undefined
+  users: User[] | undefined
+  handleMembers: (membersIds: string[]) => void
+}
+
+const AddTeamModal: React.ForwardRefRenderFunction<
+  HTMLDialogElement,
+  AddTeamModalProps
+> = ({ rper, users, handleMembers }, ref) => {
   let refCurrent: HTMLDialogElement | null
+  const [nonMembers, setNonMembers] = useState<User[]>()
+  const [selectedMember, setSelectedMember] = useState('')
+
+  const isMember = (user: User) => {
+    const isMember =
+      rper && rper.members.some(member => member.user_id === user.user_id)
+
+    return isMember
+  }
 
   useEffect(() => {
     if (ref != null && typeof ref !== 'function') {
@@ -20,9 +38,29 @@ const AddTeamModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
     }
   }, [])
 
+  useEffect(() => {
+    setNonMembers(
+      users?.filter(
+        user => !isMember(user) && user.user_id !== rper?.coordinator_id,
+      ),
+    )
+  }, [users])
+
   const closeModal = useCallback(() => {
     refCurrent?.close()
   }, [ref])
+
+  const handleAddMember = () => {
+    const membersIds = users
+      ?.filter(user => isMember(user) && user.user_id !== rper?.coordinator_id)
+      .map(filteredUsers => filteredUsers.user_id) as string[]
+
+    const updatedMembers = [...membersIds, selectedMember]
+
+    handleMembers(updatedMembers)
+
+    closeModal()
+  }
 
   return (
     <Modal ref={ref}>
@@ -30,79 +68,34 @@ const AddTeamModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
         <AiOutlineClose />
       </button>
       <TeamContainer>
-        <label htmlFor="1">
-          <input type="radio" id="1" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="2">
-          <input type="radio" id="2" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="3">
-          <input type="radio" id="3" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="4">
-          <input type="radio" id="4" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="5">
-          <input type="radio" id="5" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="6">
-          <input type="radio" id="6" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
-        <label htmlFor="7">
-          <input type="radio" id="7" name="member" />
-          <div>
-            <PlaceholderLoading>
-              <div></div>
-              <div></div>
-            </PlaceholderLoading>
-          </div>
-          <strong>User</strong>
-        </label>
+        {nonMembers && nonMembers?.length > 0
+          ? nonMembers.map(user => (
+              <label htmlFor={user.user_id} key={user.user_id}>
+                <input
+                  type="radio"
+                  id={user.user_id}
+                  name="member"
+                  onClick={() => setSelectedMember(user.user_id)}
+                />
+                {user.avatar_url ? (
+                  <Avatar>
+                    <img src={user.avatar_url} alt="Avatar do usuário" />
+                  </Avatar>
+                ) : (
+                  <div>
+                    <PlaceholderLoading>
+                      <div></div>
+                      <div></div>
+                    </PlaceholderLoading>
+                  </div>
+                )}
+                <strong>{user.name}</strong>
+              </label>
+            ))
+          : null}
       </TeamContainer>
       <ButtonContainer>
-        <Button>Add Member</Button>
+        <Button onClick={handleAddMember}>Add Member</Button>
       </ButtonContainer>
     </Modal>
   )

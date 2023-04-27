@@ -44,12 +44,12 @@ function Router() {
           <Route path="/rper-list" element={<RperList />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard/summary/:id" element={<Summary />} />
+          <Route path="/dashboard/team/:id" element={<Team />} />
+          <Route
+            path="/dashboard/secondary-data/:id"
+            element={<SecondaryData />}
+          />
           <Route element={<Dashboard />}>
-            <Route path="/dashboard/team/:id" element={<Team />} />
-            <Route
-              path="/dashboard/secondary-data/:id"
-              element={<SecondaryData />}
-            />
             <Route
               path="/dashboard/contact-collectivity/:id"
               element={<ContactCollectivity />}
