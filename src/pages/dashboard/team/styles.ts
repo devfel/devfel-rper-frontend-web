@@ -39,6 +39,12 @@ export const MemberCard = styled.article`
 export const AvatarContainer = styled.div`
   width: 56px;
   height: 56px;
+
+  & img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
 `
 
 export const MemberInfoContainer = styled.div`
