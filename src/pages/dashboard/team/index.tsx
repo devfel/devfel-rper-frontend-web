@@ -24,6 +24,8 @@ import Menu from '../../../components/menu'
 import api from '../../../services/api'
 import { Rper, User } from '../types'
 import { useParams } from 'react-router-dom'
+import { useAuth } from '../../../contexts/auth-context'
+import { RemoveMemberRper } from './types'
 
 const Team: React.FC = () => {
   const { id } = useParams()
@@ -31,6 +33,7 @@ const Team: React.FC = () => {
   const confirmationModalRef = useRef<HTMLDialogElement>(null)
   const [typeOfConfirmationModal, setTypeOfConfirmationModal] = useState('')
   const [transferCoord, setTransferCoord] = useState('')
+  const [removeMember, setRemoveMember] = useState({})
   const [rper, setRper] = useState<Rper>()
   const [users, setUsers] = useState<User[]>()
 
@@ -60,6 +63,7 @@ const Team: React.FC = () => {
       })
 
       await getRper()
+      await getUsers()
     } catch (error) {
       console.log(error)
     }
@@ -83,13 +87,35 @@ const Team: React.FC = () => {
     [confirmationModalRef],
   )
 
-  const handleRemoveMember = useCallback(
-    (userName: string, userId: string) => {
+  const handleConfirmRemoveMember = useCallback(
+    ({ member_id, member_name, rper_id }: RemoveMemberRper) => {
       setTypeOfConfirmationModal('remove')
+      setRemoveMember({
+        member_id,
+        member_name,
+        rper_id,
+      })
       confirmationModalRef.current?.showModal()
     },
     [confirmationModalRef],
   )
+
+  const handleRemoveMember = async (rper_id: string, user_id: string) => {
+    try {
+      await api.patch(`rpers/${rper_id}/members/${user_id}`)
+
+      await getRper()
+      await getUsers()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const { user } = useAuth()
+
+  const isCoordinator = rper?.coordinator_id === user.user_id
+
+  const isMember = rper?.members.some(member => member.user_id === user.user_id)
 
   return (
     <>
@@ -105,16 +131,25 @@ const Team: React.FC = () => {
             <TeamContainer>
               <TeamHeader>
                 <h3>Team</h3>
-                <button onClick={openModal}>
-                  <IoMdAdd />
-                </button>
+                {isCoordinator ? (
+                  <button onClick={openModal}>
+                    <IoMdAdd />
+                  </button>
+                ) : null}
               </TeamHeader>
               <MemberCard>
                 <AvatarContainer>
-                  <PlaceholderLoading>
-                    <div></div>
-                    <div></div>
-                  </PlaceholderLoading>
+                  {rper?.coordinator ? (
+                    <img
+                      src={rper.coordinator.avatar_url}
+                      alt={`${rper.coordinator.name}'s profile image`}
+                    />
+                  ) : (
+                    <PlaceholderLoading>
+                      <div></div>
+                      <div></div>
+                    </PlaceholderLoading>
+                  )}
                 </AvatarContainer>
                 <MemberInfoContainer>
                   <strong>{rper?.coordinator.name}</strong>
@@ -127,29 +162,42 @@ const Team: React.FC = () => {
                 ? rper.members.map(member => (
                     <MemberCard key={member.user_id}>
                       <AvatarContainer>
-                        <PlaceholderLoading>
-                          <div></div>
-                          <div></div>
-                        </PlaceholderLoading>
+                        {member.avatar_url ? (
+                          <img
+                            src={member.avatar_url}
+                            alt={`${member.name}'s profile image`}
+                          />
+                        ) : (
+                          <PlaceholderLoading>
+                            <div></div>
+                            <div></div>
+                          </PlaceholderLoading>
+                        )}
                       </AvatarContainer>
                       <MemberInfoContainer>
                         <strong>{member.name}</strong>
                         <span>
                           <CoordinatorButtonsManagementContainer>
-                            <PromoteToCoordinatorButton
+                            {/* <PromoteToCoordinatorButton
                               onClick={() =>
                                 handleTransferCoordinator(member.name)
                               }
                             >
                               <BiCrown />
-                            </PromoteToCoordinatorButton>
-                            <RemoveMemberButton
-                              onClick={() =>
-                                handleRemoveMember(member.user_id, member.name)
-                              }
-                            >
-                              <IoMdRemove />
-                            </RemoveMemberButton>
+                            </PromoteToCoordinatorButton> */}
+                            {isCoordinator ? (
+                              <RemoveMemberButton
+                                onClick={() =>
+                                  handleConfirmRemoveMember({
+                                    member_id: member.user_id,
+                                    member_name: member.name,
+                                    rper_id: rper.rper_id,
+                                  })
+                                }
+                              >
+                                <IoMdRemove />
+                              </RemoveMemberButton>
+                            ) : null}
                           </CoordinatorButtonsManagementContainer>
                         </span>
                       </MemberInfoContainer>
@@ -167,7 +215,8 @@ const Team: React.FC = () => {
             <ConfirmationActionModal
               ref={confirmationModalRef}
               typeOfModel={typeOfConfirmationModal}
-              user={transferCoord}
+              data={removeMember}
+              handleMembers={handleRemoveMember}
             />
           </Container>
         </Content>
