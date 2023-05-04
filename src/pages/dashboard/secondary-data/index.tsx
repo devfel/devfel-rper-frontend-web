@@ -13,11 +13,10 @@ const SecondaryData: React.FC = () => {
   const [readOnly, setReadOnly] = useState(true)
   const [rper, setRper] = useState<Rper>()
 
-  console.log(rper)
-
   const getRper = async () => {
     try {
       const response = await api.get<Rper>(`rpers/${id}`)
+
       setRper(response.data)
     } catch (error) {
       console.log(error)
@@ -30,6 +29,7 @@ const SecondaryData: React.FC = () => {
         content: contentText,
       })
       setReadOnly(true)
+      setContentText(contentText)
     } catch (error) {
       console.log(error)
     }
@@ -43,6 +43,7 @@ const SecondaryData: React.FC = () => {
     <>
       <Header />
       <Main>
+        <h1>{rper?.name}</h1>
         <Menu />
         <Content>
           <EditorComponent
@@ -51,7 +52,7 @@ const SecondaryData: React.FC = () => {
             handleSave={handleSave}
             isReadOnly={readOnly}
             handleReadOnly={setReadOnly}
-            content={rper?.secondaryData.content || ''}
+            content={contentText || rper?.secondaryData.content || ''}
           />
         </Content>
       </Main>

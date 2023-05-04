@@ -20,11 +20,10 @@ const TextEditor = ({
 }: TextEditorProps) => {
   const editor = useRef<SunEditorCore>()
 
-  console.log(content)
-
   useEffect(() => {
     editor.current?.readOnly(isReadOnly)
-  }, [isReadOnly])
+    editor.current?.setContents(content)
+  }, [isReadOnly, content])
 
   const saveToDB = {
     name: 'saveToDB',
@@ -77,7 +76,6 @@ const TextEditor = ({
           formats: ['h1', 'h2', 'h3', 'p', 'div', 'blockquote', 'pre'],
         }}
         onChange={handleTextChange}
-        setContents={content}
       />
     </Container>
   )

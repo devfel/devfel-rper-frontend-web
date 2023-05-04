@@ -121,6 +121,7 @@ const Team: React.FC = () => {
     <>
       <Header />
       <Main>
+        <h1>{rper?.name}</h1>
         <Menu />
         <Content>
           <Container>
