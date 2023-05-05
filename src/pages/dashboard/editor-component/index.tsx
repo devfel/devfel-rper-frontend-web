@@ -40,7 +40,7 @@ const EditorComponent: React.FC<TitleProp> = ({
           Enable Edition
         </Button>
         <Button disabled={isReadOnly} onClick={handleSave}>
-          Salvar
+          Save
         </Button>
       </ActionButtons>
       <TextEditor

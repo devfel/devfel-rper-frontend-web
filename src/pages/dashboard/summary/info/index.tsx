@@ -7,7 +7,12 @@ import {
 } from './styles'
 import Logo from '../../../../assets/small-logo.svg'
 
-const Info: React.FC = () => {
+interface InfoProps {
+  lastUpdate: string
+  createdAt: string
+}
+
+const Info = ({ createdAt, lastUpdate }: InfoProps) => {
   function renderImage(src?: string) {
     if (src) {
       return (
@@ -33,8 +38,8 @@ const Info: React.FC = () => {
   return (
     <Container>
       <h3>Information and Highlight</h3>
-      <p>Last Update: 20/02/2021</p>
-      <p>Created on: 13/02/2019</p>
+      <p>Last Update: {lastUpdate}</p>
+      <p>Created on: {createdAt}</p>
       {renderImage('https://picsum.photos/250/380')}
     </Container>
   )

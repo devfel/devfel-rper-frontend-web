@@ -95,7 +95,14 @@ const Summary: React.FC = () => {
                   : null}
               </article>
             </Team>
-            <Info />
+            <Info
+              lastUpdate={new Date(
+                rper?.updated_at || new Date(),
+              ).toLocaleDateString('pt-BR')}
+              createdAt={new Date(
+                rper?.created_at || new Date(),
+              ).toLocaleDateString('pt-BR')}
+            />
             <Progress>
               <h3>RPER Application Progress</h3>
               <ProgressBarContainer>
@@ -105,7 +112,7 @@ const Summary: React.FC = () => {
                 <strong>{progress}%</strong>
               </ProgressBarContainer>
             </Progress>
-            <Carousel />
+            {/* <Carousel /> */}
           </Container>
         </Content>
       </Main>
