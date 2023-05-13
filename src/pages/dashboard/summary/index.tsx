@@ -1,7 +1,6 @@
 /* eslint-disable indent */
 import { useEffect, useState } from 'react'
 import { RiExchangeFill } from 'react-icons/ri'
-import Carousel from './carousel'
 import Info from './info'
 import {
   Container,
@@ -13,28 +12,18 @@ import {
   Avatar,
 } from './styles'
 import { useParams } from 'react-router-dom'
-import api from '../../../services/api'
-import { Rper } from '../types'
 import Menu from '../../../components/menu'
 import Header from '../../../components/header'
 import { Content, Main } from '../styles'
+import { useRper } from '../../../contexts/rper-context'
 
 const Summary: React.FC = () => {
-  const [progress, setProgress] = useState(70)
-  const [rper, setRper] = useState<Rper>()
   const { id } = useParams()
-
-  const getRper = async () => {
-    try {
-      const response = await api.get<Rper>(`rpers/${id}`)
-      setRper(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const [progress, setProgress] = useState(70)
+  const { rper, findRper } = useRper()
 
   useEffect(() => {
-    getRper()
+    findRper(`${id}`)
   }, [])
 
   return (

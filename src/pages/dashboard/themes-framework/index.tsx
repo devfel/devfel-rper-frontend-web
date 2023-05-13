@@ -8,7 +8,8 @@ const ThemesFramework: React.FC = () => {
       handleSave={() => null}
       handleTextChange={() => null}
       isReadOnly
-      content=""
+      rper={null}
+      editable
     />
   )
 }
