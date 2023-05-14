@@ -14,7 +14,6 @@ import {
   AvatarContainer,
   MemberInfoContainer,
   CoordinatorButtonsManagementContainer,
-  PromoteToCoordinatorButton,
   RemoveMemberButton,
 } from './styles'
 
@@ -22,10 +21,10 @@ import Header from '../../../components/header'
 import { Content, Main } from '../styles'
 import Menu from '../../../components/menu'
 import api from '../../../services/api'
-import { Rper, User } from '../types'
 import { useParams } from 'react-router-dom'
 import { useAuth } from '../../../contexts/auth-context'
 import { RemoveMemberRper } from './types'
+import { User, useRper } from '../../../contexts/rper-context'
 
 const Team: React.FC = () => {
   const { id } = useParams()
@@ -34,17 +33,8 @@ const Team: React.FC = () => {
   const [typeOfConfirmationModal, setTypeOfConfirmationModal] = useState('')
   const [transferCoord, setTransferCoord] = useState('')
   const [removeMember, setRemoveMember] = useState({})
-  const [rper, setRper] = useState<Rper>()
   const [users, setUsers] = useState<User[]>()
-
-  const getRper = async () => {
-    try {
-      const response = await api.get<Rper>(`rpers/${id}`)
-      setRper(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const { rper, findRper } = useRper()
 
   const getUsers = async () => {
     try {
@@ -62,7 +52,7 @@ const Team: React.FC = () => {
         users_ids: updatedMembersIds,
       })
 
-      await getRper()
+      await findRper(`${id}`)
       await getUsers()
     } catch (error) {
       console.log(error)
@@ -70,7 +60,7 @@ const Team: React.FC = () => {
   }
 
   useEffect(() => {
-    getRper()
+    findRper(`${id}`)
     getUsers()
   }, [])
 
@@ -104,7 +94,7 @@ const Team: React.FC = () => {
     try {
       await api.patch(`rpers/${rper_id}/members/${user_id}`)
 
-      await getRper()
+      await findRper(`${id}`)
       await getUsers()
     } catch (error) {
       console.log(error)

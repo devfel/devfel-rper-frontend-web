@@ -3,14 +3,18 @@ import { RiExchangeFill } from 'react-icons/ri'
 import Button from '../../../components/button'
 import TextEditor from '../../../components/text-editor'
 import { ActionButtons, Container } from './styles'
+import { Rper } from '../../../contexts/rper-context'
+import { isMember } from '../../../utils/is-rper-member'
+import { useAuth } from '../../../contexts/auth-context'
 
 interface TitleProp {
   title: string
+  isReadOnly: boolean
+  rper: Rper | null
+  editable: boolean
   handleTextChange: (text: string) => void
   handleSave: () => void
-  isReadOnly: boolean
   handleReadOnly: (readonly: boolean) => void
-  content: string
 }
 
 const EditorComponent: React.FC<TitleProp> = ({
@@ -19,8 +23,11 @@ const EditorComponent: React.FC<TitleProp> = ({
   handleTextChange,
   handleReadOnly,
   isReadOnly,
-  content,
+  rper,
+  editable,
 }) => {
+  const { user } = useAuth()
+
   const handleEnableEdition = useCallback(() => {
     handleReadOnly(false)
   }, [])
@@ -29,6 +36,9 @@ const EditorComponent: React.FC<TitleProp> = ({
     handleReadOnly(value)
   }
 
+  const hasPermissionToEdit =
+    rper?.coordinator_id === user.user_id || isMember(rper, user.user_id)
+
   return (
     <Container>
       <h2>
@@ -36,10 +46,16 @@ const EditorComponent: React.FC<TitleProp> = ({
         {title}
       </h2>
       <ActionButtons>
-        <Button onClick={handleEnableEdition} disabled={!isReadOnly}>
+        <Button
+          onClick={handleEnableEdition}
+          disabled={!isReadOnly || !editable || !hasPermissionToEdit}
+        >
           Enable Edition
         </Button>
-        <Button disabled={isReadOnly} onClick={handleSave}>
+        <Button
+          disabled={isReadOnly || !hasPermissionToEdit}
+          onClick={handleSave}
+        >
           Save
         </Button>
       </ActionButtons>
@@ -47,7 +63,7 @@ const EditorComponent: React.FC<TitleProp> = ({
         isReadOnly={isReadOnly}
         updateReadOnlyFunction={updateReadOnly}
         handleTextChange={handleTextChange}
-        content={content}
+        content={rper?.secondaryData.content || ''}
       />
     </Container>
   )

@@ -9,10 +9,10 @@ import {
   ButtonContainer,
   Avatar,
 } from './styles'
-import { Rper, User } from '../../../types'
+import { Rper, User } from '../../../../../contexts/rper-context'
 
 interface AddTeamModalProps {
-  rper: Rper | undefined
+  rper: Rper | null
   users: User[] | undefined
   handleMembers: (membersIds: string[]) => void
 }
