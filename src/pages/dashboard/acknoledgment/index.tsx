@@ -11,7 +11,6 @@ const Acknoledgment: React.FC = () => {
       </h2>
       <TextEditor
         isReadOnly
-        updateReadOnlyFunction={() => false}
         handleTextChange={() => {
           null
         }}

@@ -6,12 +6,29 @@ import { Content, Main } from '../styles'
 import { useParams } from 'react-router-dom'
 import api from '../../../services/api'
 import { useRper } from '../../../contexts/rper-context'
+import { useAuth } from '../../../contexts/auth-context'
 
 const SecondaryData: React.FC = () => {
   const { id } = useParams()
-  const { rper, findRper } = useRper()
+  const { rper, findRper, editingResource, findEditingResource } = useRper()
+  const { user } = useAuth()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
+
+  const handleEditingResource = async (readonly: boolean) => {
+    if (editingResource) {
+      window.alert('Este recurso já está sendo editado')
+      return
+    }
+
+    await api.post('rpers/resources', {
+      rper_id: rper?.rper_id,
+      user_id: user.user_id,
+      resource: 'secondary-data',
+    })
+
+    setReadOnly(readonly)
+  }
 
   const handleSave = async () => {
     try {
@@ -19,19 +36,11 @@ const SecondaryData: React.FC = () => {
         content: contentText,
         editable: !readOnly,
       })
+      await api.delete(
+        `rpers/resources/${rper?.rper_id}/${user.user_id}/secondary-data`,
+      )
+      setReadOnly(true)
       findRper(`${id}`)
-
-      setReadOnly(!rper?.secondaryData.editable)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const handleUpdateRperEditable = async (editable: boolean) => {
-    try {
-      await api.put(`rpers/${id}/secondary-data`, {
-        editable,
-      })
     } catch (error) {
       console.log(error)
     }
@@ -39,12 +48,7 @@ const SecondaryData: React.FC = () => {
 
   useEffect(() => {
     findRper(`${id}`)
-
-    if (rper?.secondaryData.editable === true) {
-      handleUpdateRperEditable(!rper?.secondaryData.editable)
-    }
-
-    setReadOnly(!rper?.secondaryData.editable)
+    findEditingResource(`${id}`, 'secondary-data')
   }, [])
 
   return (
@@ -59,9 +63,8 @@ const SecondaryData: React.FC = () => {
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}
-            handleReadOnly={setReadOnly}
+            handleReadOnly={handleEditingResource}
             rper={rper}
-            editable={!!rper?.secondaryData.editable}
           />
         </Content>
       </Main>

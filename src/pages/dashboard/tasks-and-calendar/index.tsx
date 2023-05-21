@@ -9,7 +9,6 @@ const TasksAndCalendar: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
-      editable
     />
   )
 }

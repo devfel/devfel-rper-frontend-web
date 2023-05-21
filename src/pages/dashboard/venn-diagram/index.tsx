@@ -9,7 +9,6 @@ const VennDiagram: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
-      editable
     />
   )
 }

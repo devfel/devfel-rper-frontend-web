@@ -16,4 +16,8 @@ export const Container = styled.button`
   &:hover {
     background-color: ${shade(0.2, '#e62154')};
   }
+
+  @media only screen and (max-width: 767px) {
+    font-size: 1.6rem;
+  }
 `

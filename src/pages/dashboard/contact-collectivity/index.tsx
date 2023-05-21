@@ -9,7 +9,6 @@ const ContactCollectivity: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
-      editable
     />
   )
 }
