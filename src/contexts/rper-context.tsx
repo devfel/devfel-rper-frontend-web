@@ -9,7 +9,6 @@ export interface User {
 
 interface SecondaryData {
   content: string
-  editable: boolean
 }
 
 export interface Rper {
@@ -23,11 +22,19 @@ export interface Rper {
   updated_at: string
 }
 
+interface EditingResource {
+  rper_id: string
+  user_id: string
+  resource: string
+}
+
 interface RperContextData {
   rpers: Rper[] | null
   rper: Rper | null
+  editingResource: EditingResource | null
   getRpers: () => Promise<void>
   findRper: (rper_id: string) => Promise<void>
+  findEditingResource: (rper_id: string, resource: string) => Promise<void>
 }
 
 const RperContext = createContext({} as RperContextData)
@@ -37,6 +44,8 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [rpers, setRpers] = useState<Rper[] | null>(null)
   const [rper, setRper] = useState<Rper | null>(null)
+  const [editingResource, setEditingResource] =
+    useState<EditingResource | null>(null)
 
   const getRpers = useCallback(async () => {
     try {
@@ -59,8 +68,31 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
     [setRper],
   )
 
+  const findEditingResource = useCallback(
+    async (rper_id: string, resource: string) => {
+      try {
+        const response = await api.get(
+          `/rpers/resources/${rper_id}/${resource}`,
+        )
+        setEditingResource(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    [],
+  )
+
   return (
-    <RperContext.Provider value={{ rpers, rper, getRpers, findRper }}>
+    <RperContext.Provider
+      value={{
+        rpers,
+        rper,
+        getRpers,
+        findRper,
+        findEditingResource,
+        editingResource,
+      }}
+    >
       {children}
     </RperContext.Provider>
   )

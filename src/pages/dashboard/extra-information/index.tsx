@@ -9,7 +9,6 @@ const ExtraInformation: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
-      editable
     />
   )
 }

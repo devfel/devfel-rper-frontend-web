@@ -11,7 +11,6 @@ interface TitleProp {
   title: string
   isReadOnly: boolean
   rper: Rper | null
-  editable: boolean
   handleTextChange: (text: string) => void
   handleSave: () => void
   handleReadOnly: (readonly: boolean) => void
@@ -24,17 +23,12 @@ const EditorComponent: React.FC<TitleProp> = ({
   handleReadOnly,
   isReadOnly,
   rper,
-  editable,
 }) => {
   const { user } = useAuth()
 
   const handleEnableEdition = useCallback(() => {
     handleReadOnly(false)
   }, [])
-
-  const updateReadOnly = (value: boolean) => {
-    handleReadOnly(value)
-  }
 
   const hasPermissionToEdit =
     rper?.coordinator_id === user.user_id || isMember(rper, user.user_id)
@@ -48,7 +42,7 @@ const EditorComponent: React.FC<TitleProp> = ({
       <ActionButtons>
         <Button
           onClick={handleEnableEdition}
-          disabled={!isReadOnly || !editable || !hasPermissionToEdit}
+          disabled={!isReadOnly || !hasPermissionToEdit}
         >
           Enable Edition
         </Button>
@@ -61,7 +55,6 @@ const EditorComponent: React.FC<TitleProp> = ({
       </ActionButtons>
       <TextEditor
         isReadOnly={isReadOnly}
-        updateReadOnlyFunction={updateReadOnly}
         handleTextChange={handleTextChange}
         content={rper?.secondaryData.content || ''}
       />
