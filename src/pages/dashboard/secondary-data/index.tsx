@@ -62,7 +62,7 @@ const SecondaryData: React.FC = () => {
       handleSave()
       findRper(`${id}`)
       setReadOnly(true)
-    }, 10000)
+    }, MAX_TIME_WITHOUT_EDITING)
 
     return () => clearInterval(timer)
   }, [contentText])
