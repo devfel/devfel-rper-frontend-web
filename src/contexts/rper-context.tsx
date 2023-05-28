@@ -31,10 +31,12 @@ interface EditingResource {
 interface RperContextData {
   rpers: Rper[] | null
   rper: Rper | null
-  editingResource: EditingResource | null
   getRpers: () => Promise<void>
   findRper: (rper_id: string) => Promise<void>
-  findEditingResource: (rper_id: string, resource: string) => Promise<void>
+  findEditingResource: (
+    rper_id: string,
+    resource: string,
+  ) => Promise<EditingResource>
 }
 
 const RperContext = createContext({} as RperContextData)
@@ -44,8 +46,6 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [rpers, setRpers] = useState<Rper[] | null>(null)
   const [rper, setRper] = useState<Rper | null>(null)
-  const [editingResource, setEditingResource] =
-    useState<EditingResource | null>(null)
 
   const getRpers = useCallback(async () => {
     try {
@@ -74,7 +74,7 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
         const response = await api.get(
           `/rpers/resources/${rper_id}/${resource}`,
         )
-        setEditingResource(response.data)
+        return response.data
       } catch (error) {
         console.log(error)
       }
@@ -90,7 +90,6 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
         getRpers,
         findRper,
         findEditingResource,
-        editingResource,
       }}
     >
       {children}
