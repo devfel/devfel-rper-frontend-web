@@ -70,6 +70,7 @@ const SecondaryData: React.FC = () => {
   useBeforeUnload(() => {
     handleSave()
     handleRemoveEditingResource()
+    setReadOnly(true)
   })
 
   return (
