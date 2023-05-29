@@ -10,13 +10,14 @@ import { useAuth } from '../../../contexts/auth-context'
 
 const SecondaryData: React.FC = () => {
   const { id } = useParams()
-  const { rper, findRper, editingResource, findEditingResource } = useRper()
+  const { rper, findRper, findEditingResource } = useRper()
   const { user } = useAuth()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
 
   const handleEditingResource = async (readonly: boolean) => {
-    if (editingResource) {
+    const isEditing = await findEditingResource(`${id}`, 'secondary-data')
+    if (isEditing) {
       window.alert('Este recurso já está sendo editado')
       return
     }
@@ -26,6 +27,8 @@ const SecondaryData: React.FC = () => {
       user_id: user.user_id,
       resource: 'secondary-data',
     })
+
+    findRper(`${id}`)
 
     setReadOnly(readonly)
   }
@@ -48,7 +51,6 @@ const SecondaryData: React.FC = () => {
 
   useEffect(() => {
     findRper(`${id}`)
-    findEditingResource(`${id}`, 'secondary-data')
   }, [])
 
   return (
