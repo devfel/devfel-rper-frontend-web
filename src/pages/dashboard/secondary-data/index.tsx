@@ -3,7 +3,7 @@ import Header from '../../../components/header'
 import Menu from '../../../components/menu'
 import EditorComponent from '../editor-component'
 import { Content, Main } from '../styles'
-import { useParams } from 'react-router-dom'
+import { useParams, useBeforeUnload } from 'react-router-dom'
 import api from '../../../services/api'
 import { useRper } from '../../../contexts/rper-context'
 import { useAuth } from '../../../contexts/auth-context'
@@ -14,6 +14,8 @@ const SecondaryData: React.FC = () => {
   const { user } = useAuth()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
+
+  const MAX_TIME_WITHOUT_EDITING = 3 * 60000
 
   const handleEditingResource = async (readonly: boolean) => {
     const isEditing = await findEditingResource(`${id}`, 'secondary-data')
@@ -33,15 +35,17 @@ const SecondaryData: React.FC = () => {
     setReadOnly(readonly)
   }
 
+  const handleRemoveEditingResource = async () => {
+    await api.delete(`rpers/resources/${id}/${user.user_id}/secondary-data`)
+  }
+
   const handleSave = async () => {
     try {
       await api.put(`rpers/${id}/secondary-data`, {
         content: contentText,
         editable: !readOnly,
       })
-      await api.delete(
-        `rpers/resources/${rper?.rper_id}/${user.user_id}/secondary-data`,
-      )
+      await handleRemoveEditingResource()
       setReadOnly(true)
       findRper(`${id}`)
     } catch (error) {
@@ -52,6 +56,21 @@ const SecondaryData: React.FC = () => {
   useEffect(() => {
     findRper(`${id}`)
   }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleSave()
+      findRper(`${id}`)
+      setReadOnly(true)
+    }, MAX_TIME_WITHOUT_EDITING)
+
+    return () => clearInterval(timer)
+  }, [contentText])
+
+  useBeforeUnload(() => {
+    handleSave()
+    handleRemoveEditingResource()
+  })
 
   return (
     <>
