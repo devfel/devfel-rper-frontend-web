@@ -15,6 +15,7 @@ const Acknoledgment: React.FC = () => {
           null
         }}
         content=""
+        handleUploadImage={() => null}
       />
     </Container>
   )

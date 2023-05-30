@@ -9,6 +9,7 @@ const RealityAndObjMatrix: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
+      handleUploadImage={() => null}
     />
   )
 }
