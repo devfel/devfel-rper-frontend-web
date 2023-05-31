@@ -9,6 +9,7 @@ const TasksAndCalendar: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
+      handleUploadImage={() => null}
     />
   )
 }

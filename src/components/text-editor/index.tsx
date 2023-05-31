@@ -1,20 +1,22 @@
 import { useEffect, useRef } from 'react'
 import SunEditor from 'suneditor-react'
-import SunEditorCore, { Core } from 'suneditor/src/lib/core'
+import SunEditorCore from 'suneditor/src/lib/core'
 import plugins from 'suneditor/src/plugins'
 import 'suneditor/dist/css/suneditor.min.css'
 import { Container } from './styles'
 
 interface TextEditorProps {
   isReadOnly: boolean
-  handleTextChange: (value: any) => void
   content: string
+  handleTextChange: (value: any) => void
+  handleUploadImage: (files: any, info: any, uploadHandler: any) => void
 }
 
 const TextEditor = ({
   isReadOnly,
   handleTextChange,
   content,
+  handleUploadImage,
 }: TextEditorProps) => {
   const editor = useRef<SunEditorCore>()
 
@@ -49,6 +51,7 @@ const TextEditor = ({
           formats: ['h1', 'h2', 'h3', 'p', 'div', 'blockquote', 'pre'],
         }}
         onChange={handleTextChange}
+        onImageUploadBefore={handleUploadImage}
       />
     </Container>
   )

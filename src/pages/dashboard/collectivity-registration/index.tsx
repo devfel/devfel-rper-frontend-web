@@ -9,6 +9,7 @@ const CollectivityRegistration: React.FC = () => {
       handleTextChange={() => null}
       isReadOnly
       rper={null}
+      handleUploadImage={() => null}
     />
   )
 }

@@ -14,6 +14,7 @@ interface TitleProp {
   handleTextChange: (text: string) => void
   handleSave: () => void
   handleReadOnly: (readonly: boolean) => void
+  handleUploadImage: (files: any, info: any, uploadHandler: any) => void
 }
 
 const EditorComponent: React.FC<TitleProp> = ({
@@ -23,6 +24,7 @@ const EditorComponent: React.FC<TitleProp> = ({
   handleReadOnly,
   isReadOnly,
   rper,
+  handleUploadImage,
 }) => {
   const { user } = useAuth()
 
@@ -57,6 +59,7 @@ const EditorComponent: React.FC<TitleProp> = ({
         isReadOnly={isReadOnly}
         handleTextChange={handleTextChange}
         content={rper?.secondaryData.content || ''}
+        handleUploadImage={handleUploadImage}
       />
     </Container>
   )
