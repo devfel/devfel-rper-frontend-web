@@ -12,6 +12,7 @@ import { useToast } from '../../contexts/toast-context'
 import Button from '../../components/button'
 import Input from '../../components/input'
 import { Container, Content, PlaceholderLoading, AvatarInput } from './styles'
+import { RequestMessages, RequestStatus } from '../../enums/AuthEnum'
 
 interface ProfileFormData {
   name: string
@@ -29,7 +30,7 @@ type LocationProps = {
 
 const Profile: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
-  const { user, updatedUser } = useAuth()
+  const { user, updatedUser, logOut } = useAuth()
   const { addToast } = useToast()
 
   const navigate = useNavigate()
@@ -82,9 +83,17 @@ const Profile: React.FC = () => {
             : {}),
         }
 
-        const response = await api.put('/profile', formData)
-
-        updatedUser(response.data)
+        try {
+          const response = await api.put('/profile', formData)
+          updatedUser(response.data)
+        } catch (error: any) {
+          if (
+            error.response.status === RequestStatus.UNAUTHORIZED &&
+            error.response.data.message === RequestMessages.INVALID_TOKEN
+          ) {
+            logOut()
+          }
+        }
 
         addToast({
           type: 'success',
@@ -117,14 +126,24 @@ const Profile: React.FC = () => {
         const data = new FormData()
         data.append('avatar', e.target.files[0])
 
-        api.patch('/users/avatar', data).then(response => {
-          updatedUser(response.data)
+        api
+          .patch('/users/avatar', data)
+          .then(response => {
+            updatedUser(response.data)
 
-          addToast({
-            type: 'success',
-            title: 'Avatar updated!',
+            addToast({
+              type: 'success',
+              title: 'Avatar updated!',
+            })
           })
-        })
+          .catch(error => {
+            if (
+              error.response.status === RequestStatus.UNAUTHORIZED &&
+              error.response.data.message === RequestMessages.INVALID_TOKEN
+            ) {
+              logOut()
+            }
+          })
       }
     },
     [addToast, updatedUser],

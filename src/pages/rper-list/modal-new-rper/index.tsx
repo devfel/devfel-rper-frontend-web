@@ -10,6 +10,7 @@ import Input from '../../../components/input'
 import { useToast } from '../../../contexts/toast-context'
 import { useAuth } from '../../../contexts/auth-context'
 import { Modal } from './styles'
+import { RequestMessages, RequestStatus } from '../../../enums/AuthEnum'
 
 interface SignUpFormData {
   rperName: string
@@ -19,7 +20,7 @@ const NewRperModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
   props,
   ref,
 ) => {
-  const { user } = useAuth()
+  const { user, logOut } = useAuth()
   const { addToast } = useToast()
 
   const navigate = useNavigate()
@@ -59,17 +60,26 @@ const NewRperModal: React.ForwardRefRenderFunction<HTMLDialogElement> = (
           coordinator_id: user.user_id,
         }
 
-        const response = await api.post('/rpers', formData)
+        try {
+          const response = await api.post('/rpers', formData)
 
-        const { rper_id } = response.data
+          const { rper_id } = response.data
 
-        addToast({
-          type: 'success',
-          title: 'RPER successfully created!',
-          description: 'You can now work on it',
-        })
+          addToast({
+            type: 'success',
+            title: 'RPER successfully created!',
+            description: 'You can now work on it',
+          })
 
-        navigate(`/dashboard/summary/${rper_id}`)
+          navigate(`/dashboard/summary/${rper_id}`)
+        } catch (error: any) {
+          if (
+            error.response.status === RequestStatus.UNAUTHORIZED &&
+            error.response.data.message === RequestMessages.INVALID_TOKEN
+          ) {
+            logOut()
+          }
+        }
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
