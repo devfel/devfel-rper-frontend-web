@@ -25,7 +25,7 @@ const SecondaryData: React.FC = () => {
     }
 
     await api.post('rpers/resources', {
-      rper_id: rper?.rper_id,
+      rper_id: id,
       user_id: user.user_id,
       resource: 'secondary-data',
     })
@@ -36,6 +36,7 @@ const SecondaryData: React.FC = () => {
   }
 
   const handleRemoveEditingResource = async () => {
+    console.log(id)
     await api.delete(`rpers/resources/${id}/${user.user_id}/secondary-data`)
   }
 
