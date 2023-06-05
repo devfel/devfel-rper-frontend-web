@@ -6,7 +6,6 @@ import ResetPassword from '../pages/reset-password'
 import Protected from './protected'
 import RperList from '../pages/rper-list'
 import Profile from '../pages/profile'
-import Dashboard from '../pages/dashboard'
 import Summary from '../pages/dashboard/summary'
 import Team from '../pages/dashboard/team'
 import SecondaryData from '../pages/dashboard/secondary-data'
@@ -49,7 +48,7 @@ function Router() {
             path="/dashboard/secondary-data/:id"
             element={<SecondaryData />}
           />
-          <Route element={<Dashboard />}>
+          <Route>
             <Route
               path="/dashboard/contact-collectivity/:id"
               element={<ContactCollectivity />}
