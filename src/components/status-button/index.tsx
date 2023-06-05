@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   MdPanoramaFishEye,
   MdErrorOutline,
@@ -6,12 +6,44 @@ import {
   MdCancel,
 } from 'react-icons/md'
 import { Container, StatusList } from './styles'
+import { useParams } from 'react-router-dom'
+import api from '../../services/api'
 
-const StatusButton: React.FC = () => {
+interface StatusButtonProps {
+  page: string
+}
+
+const StatusButton: React.FC<StatusButtonProps> = ({ page }) => {
   const [status, setStatus] = useState('unstarted')
+  const { id } = useParams()
+
+  useEffect(() => {
+    const getRperSectionStatus = async () => {
+      const rperSectionStatus = await api.get(`/rpers/${id}/${page}/status`)
+      const status = rperSectionStatus.data.status
+
+      setStatus(status)
+    }
+    try {
+      getRperSectionStatus()
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
+  const handleUpdateStatus = async (status: string) => {
+    try {
+      await api.patch(`/rpers/${id}/${page}/status`, {
+        new_status: status,
+      })
+      setStatus(status)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const currentStatus = useCallback(() => {
-    if (status === 'inProgress') {
+    if (status === 'in_progress') {
       return <MdErrorOutline />
     }
 
@@ -19,7 +51,7 @@ const StatusButton: React.FC = () => {
       return <MdLens />
     }
 
-    if (status === 'notApplicable') {
+    if (status === 'not_applicable') {
       return <MdCancel />
     }
 
@@ -30,19 +62,19 @@ const StatusButton: React.FC = () => {
     <Container>
       {currentStatus()}
       <StatusList>
-        <li onClick={() => setStatus('inProgress')}>
+        <li onClick={() => handleUpdateStatus('in_progress')}>
           <MdErrorOutline />
           In Progress
         </li>
-        <li onClick={() => setStatus('completed')}>
+        <li onClick={() => handleUpdateStatus('completed')}>
           <MdLens />
           Completed
         </li>
-        <li onClick={() => setStatus('notApplicable')}>
+        <li onClick={() => handleUpdateStatus('not_applicable')}>
           <MdCancel />
           Not Applicable
         </li>
-        <li onClick={() => setStatus('unstarted')}>
+        <li onClick={() => handleUpdateStatus('unstarted')}>
           <MdPanoramaFishEye />
           Unstarted
         </li>

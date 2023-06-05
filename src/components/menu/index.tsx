@@ -86,14 +86,14 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="team" />
               <LinkBtn onClick={() => handleClick('team')}>Team</LinkBtn>
             </SectionsBtn>
             <SectionsBtn isSelected={selectedButton === 'secondary-data'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="secondary-data" />
               <LinkBtn onClick={() => handleClick('secondary-data')}>
                 Secondary Data
               </LinkBtn>
@@ -102,7 +102,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="contact-collectivity" />
               <LinkBtn onClick={() => handleClick('contact-collectivity')}>
                 Contact Collectivity
               </LinkBtn>
@@ -111,7 +111,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="interview-guide" />
               <LinkBtn onClick={() => handleClick('interview-guide')}>
                 Interview Guide
               </LinkBtn>
@@ -120,7 +120,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="focus-group-guide" />
               <LinkBtn onClick={() => handleClick('focus-group-guide')}>
                 Focus Group Guide
               </LinkBtn>
@@ -129,7 +129,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="themes-framework" />
               <LinkBtn onClick={() => handleClick('themes-framework')}>
                 Themes Framework
               </LinkBtn>
@@ -138,7 +138,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="tasks-and-calendar" />
               <LinkBtn onClick={() => handleClick('tasks-and-calendar')}>
                 Tasks and Calendar
               </LinkBtn>
@@ -158,7 +158,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="collectivity-registration" />
               <LinkBtn onClick={() => handleClick('collectivity-registration')}>
                 Collectivity Registration
               </LinkBtn>
@@ -167,7 +167,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="presentation" />
               <LinkBtn onClick={() => handleClick('presentation')}>
                 Presentation
               </LinkBtn>
@@ -176,7 +176,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="historical-mapping" />
               <LinkBtn onClick={() => handleClick('historical-mapping')}>
                 Historical Mapping
               </LinkBtn>
@@ -185,7 +185,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="transect-walk" />
               <LinkBtn onClick={() => handleClick('transect-walk')}>
                 Transect Walk
               </LinkBtn>
@@ -194,7 +194,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="venn-diagram" />
               <LinkBtn onClick={() => handleClick('venn-diagram')}>
                 Venn Diagram
               </LinkBtn>
@@ -203,7 +203,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="seasonal-calendar" />
               <LinkBtn onClick={() => handleClick('seasonal-calendar')}>
                 Seasonal Calendar
               </LinkBtn>
@@ -212,7 +212,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="daily-routines" />
               <LinkBtn onClick={() => handleClick('daily-routines')}>
                 Daily Routines
               </LinkBtn>
@@ -221,7 +221,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="input-and-output" />
               <LinkBtn onClick={() => handleClick('input-and-output')}>
                 Input and Output
               </LinkBtn>
@@ -232,7 +232,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="interview-focus-group" />
               <LinkBtn onClick={() => handleClick('interview-focus-group')}>
                 Interview & Focus Group
               </LinkBtn>
@@ -243,7 +243,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="reality-and-obj-Matrix" />
               <LinkBtn onClick={() => handleClick('reality-and-obj-Matrix')}>
                 Reality and Obj. Matrix
               </LinkBtn>
@@ -254,7 +254,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="election-of-priorities" />
               <LinkBtn onClick={() => handleClick('election-of-priorities')}>
                 Election of Priorities
               </LinkBtn>
@@ -275,7 +275,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="extra-information" />
               <LinkBtn onClick={() => handleClick('extra-information')}>
                 Extra Information
               </LinkBtn>
@@ -284,7 +284,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="final-considerations" />
               <LinkBtn onClick={() => handleClick('final-considerations')}>
                 Final Considerations
               </LinkBtn>
@@ -293,7 +293,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="acknowledgment" />
               <LinkBtn onClick={() => handleClick('acknowledgment')}>
                 Acknowledgment
               </LinkBtn>
@@ -304,7 +304,7 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton />
+              <StatusButton page="generate-final-report" />
               <LinkBtn onClick={() => handleClick('generate-final-report')}>
                 Generate Final Report
               </LinkBtn>
