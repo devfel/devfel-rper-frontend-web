@@ -25,6 +25,7 @@ import { useParams } from 'react-router-dom'
 import { useAuth } from '../../../contexts/auth-context'
 import { RemoveMemberRper } from './types'
 import { User, useRper } from '../../../contexts/rper-context'
+import { RequestMessages, RequestStatus } from '../../../enums/AuthEnum'
 
 const Team: React.FC = () => {
   const { id } = useParams()
@@ -35,13 +36,20 @@ const Team: React.FC = () => {
   const [removeMember, setRemoveMember] = useState({})
   const [users, setUsers] = useState<User[]>()
   const { rper, findRper } = useRper()
+  const { logOut, user } = useAuth()
 
   const getUsers = async () => {
     try {
       const response = await api.get<User[]>('users')
       setUsers(response.data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
+      if (
+        error.response.status === RequestStatus.UNAUTHORIZED &&
+        error.response.data.message === RequestMessages.INVALID_TOKEN
+      ) {
+        logOut()
+      }
     }
   }
 
@@ -54,8 +62,14 @@ const Team: React.FC = () => {
 
       await findRper(`${id}`)
       await getUsers()
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
+      if (
+        error.response.status === RequestStatus.UNAUTHORIZED &&
+        error.response.data.message === RequestMessages.INVALID_TOKEN
+      ) {
+        logOut()
+      }
     }
   }
 
@@ -96,12 +110,16 @@ const Team: React.FC = () => {
 
       await findRper(`${id}`)
       await getUsers()
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
+      if (
+        error.response.status === RequestStatus.UNAUTHORIZED &&
+        error.response.data.message === RequestMessages.INVALID_TOKEN
+      ) {
+        logOut()
+      }
     }
   }
-
-  const { user } = useAuth()
 
   const isCoordinator = rper?.coordinator_id === user.user_id
 

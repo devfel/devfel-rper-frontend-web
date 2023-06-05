@@ -1,5 +1,7 @@
 import { createContext, useCallback, useContext, useState } from 'react'
 import api from '../services/api'
+import { useAuth } from './auth-context'
+import { RequestMessages, RequestStatus } from '../enums/AuthEnum'
 
 export interface User {
   user_id: string
@@ -46,13 +48,20 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [rpers, setRpers] = useState<Rper[] | null>(null)
   const [rper, setRper] = useState<Rper | null>(null)
+  const { logOut } = useAuth()
 
   const getRpers = useCallback(async () => {
     try {
       const response = await api.get('rpers')
       setRpers(response.data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
+      if (
+        error.response.status === RequestStatus.UNAUTHORIZED &&
+        error.response.data.message === RequestMessages.INVALID_TOKEN
+      ) {
+        logOut()
+      }
     }
   }, [setRpers])
 
@@ -61,8 +70,14 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
       try {
         const response = await api.get<Rper>(`rpers/${rper_id}`)
         setRper(response.data)
-      } catch (error) {
+      } catch (error: any) {
         console.log(error)
+        if (
+          error.response.status === RequestStatus.UNAUTHORIZED &&
+          error.response.data.message === RequestMessages.INVALID_TOKEN
+        ) {
+          logOut()
+        }
       }
     },
     [setRper],
@@ -75,8 +90,14 @@ const RperProvider: React.FC<{ children: React.ReactNode }> = ({
           `/rpers/resources/${rper_id}/${resource}`,
         )
         return response.data
-      } catch (error) {
+      } catch (error: any) {
         console.log(error)
+        if (
+          error.response.status === RequestStatus.UNAUTHORIZED &&
+          error.response.data.message === RequestMessages.INVALID_TOKEN
+        ) {
+          logOut()
+        }
       }
     },
     [],
