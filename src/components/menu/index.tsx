@@ -86,7 +86,6 @@ const Menu = () => {
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="team" />
               <LinkBtn onClick={() => handleClick('team')}>Team</LinkBtn>
             </SectionsBtn>
             <SectionsBtn isSelected={selectedButton === 'secondary-data'}>
