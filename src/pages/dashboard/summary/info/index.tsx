@@ -1,46 +1,41 @@
-import {
-  Container,
-  DefaultImage,
-  ImageContainer,
-  ImgInputButton,
-  ImgContainerButton,
-} from './styles'
-import Logo from '../../../../assets/small-logo.svg'
+import { FiImage } from 'react-icons/fi'
+import { Container, ImageContainer, PlaceholderLoading } from './styles'
 
 interface InfoProps {
   lastUpdate: string
   createdAt: string
+  handleBackgroundChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  background: string | undefined
 }
 
-const Info = ({ createdAt, lastUpdate }: InfoProps) => {
-  function renderImage(src?: string) {
-    if (src) {
-      return (
-        <ImgContainerButton>
-          <label htmlFor="info-image">
-            <img src={src} />
-            <input type="file" id="info-image" />
-          </label>
-        </ImgContainerButton>
-      )
-    }
-    return (
-      <ImageContainer>
-        <DefaultImage src={Logo} />
-        <ImgInputButton htmlFor="info-image">
-          <span>Add Picture</span>
-          <input type="file" id="info-image" />
-        </ImgInputButton>
-      </ImageContainer>
-    )
-  }
-
+const Info = ({
+  createdAt,
+  lastUpdate,
+  handleBackgroundChange,
+  background,
+}: InfoProps) => {
   return (
     <Container>
       <h3>Information and Highlight</h3>
       <p>Last Update: {lastUpdate}</p>
       <p>Created on: {createdAt}</p>
-      {renderImage('https://picsum.photos/250/380')}
+      <ImageContainer>
+        <label htmlFor="rper-background">
+          {background ? (
+            <img src={background} alt="RPER background" />
+          ) : (
+            <PlaceholderLoading>
+              <FiImage />
+            </PlaceholderLoading>
+          )}
+          <input
+            type="file"
+            id="rper-background"
+            hidden
+            onChange={handleBackgroundChange}
+          />
+        </label>
+      </ImageContainer>
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import { useCallback, useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FiSearch, FiChevronDown, FiChevronUp } from 'react-icons/fi'
-import { useRper } from '../../contexts/rper-context'
+import { FiSearch, FiChevronDown, FiChevronUp, FiImage } from 'react-icons/fi'
+import { Rper, useRper } from '../../contexts/rper-context'
 import Header from '../../components/header'
 import Button from '../../components/button'
 import NewRperModal from './modal-new-rper'
@@ -9,18 +9,11 @@ import {
   Card,
   InputContainer,
   Main,
+  PlaceholderLoading,
   SortBtn,
   SortContainer,
   SortList,
 } from './styles'
-
-interface Rper {
-  name: string
-  coordinator_id: string
-  rper_id: string
-  created_at: string
-  updated_at: string
-}
 
 const RperList: React.FC = () => {
   const modalRef = useRef<HTMLDialogElement>(null)
@@ -131,7 +124,13 @@ const RperList: React.FC = () => {
         {filterdRpers?.map((rper: Rper) => (
           <Link to={`/dashboard/summary/${rper.rper_id}`} key={rper.rper_id}>
             <Card>
-              <img src="https://picsum.photos/300/280" alt="" />
+              {rper.background_url ? (
+                <img src={rper.background_url} alt="" />
+              ) : (
+                <PlaceholderLoading>
+                  <FiImage />
+                </PlaceholderLoading>
+              )}
               <div>
                 <p>{rper.name}</p>
                 <div>

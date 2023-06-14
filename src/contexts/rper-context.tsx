@@ -20,6 +20,7 @@ export interface Rper {
   secondaryData: SecondaryData
   coordinator: User
   members: User[]
+  background_url: string | undefined
   created_at: string
   updated_at: string
 }
