@@ -40,52 +40,28 @@ export const ImageContainer = styled.div`
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-`
-
-export const ImgContainerButton = styled.div`
-  width: 250px;
-  height: 380px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0 auto;
 
   img {
+    width: 100%;
+    height: 100%;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
     cursor: pointer;
   }
-
-  input {
-    display: none;
-  }
 `
-
-export const ImgInputButton = styled.label`
+export const PlaceholderLoading = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 56px;
-  border-radius: 10px;
-  background-color: #e62154;
-  color: #f0edee;
-  font-size: 2rem;
-  font-weight: 500;
-  transition: background-color 0.3s;
-  cursor: pointer;
-  position: absolute;
-  top: 60%;
 
-  &:hover {
-    background-color: ${shade(0.2, '#e62154')};
+  svg {
+    width: 70px;
+    height: 70px;
+    color: #c0c1c5;
   }
-
-  input {
-    display: none;
-  }
-`
-
-export const DefaultImage = styled.img`
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  bottom: 30%;
 `

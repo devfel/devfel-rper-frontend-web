@@ -226,7 +226,6 @@ export const Card = styled.article`
 
   div {
     background-color: #f0edee;
-    border-radius: 0 0 10px 10px;
     width: 314px;
 
     p {
@@ -261,5 +260,18 @@ export const Card = styled.article`
   }
 
   @media screen and (min-width: 1280px) {
+  }
+`
+export const PlaceholderLoading = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 70px;
+    height: 70px;
+    color: #c0c1c5;
   }
 `
