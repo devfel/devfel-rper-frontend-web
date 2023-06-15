@@ -150,10 +150,6 @@ export const SubMenuItems = styled.div<SubMenuProps>`
     }
   }
 
-  div:nth-child(1) {
-    gap: 22px;
-  }
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;

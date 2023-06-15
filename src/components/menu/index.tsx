@@ -82,7 +82,10 @@ const Menu = () => {
             <IoMdArrowDropdown />
           </SubMenuTitle>
           <SubMenuItems toggle={togglePreparation}>
-            <SectionsBtn isSelected={selectedButton === 'team'}>
+            <SectionsBtn
+              isSelected={selectedButton === 'team'}
+              style={{ gap: '22px' }}
+            >
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>

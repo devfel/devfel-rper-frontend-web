@@ -265,8 +265,8 @@ export const Card = styled.article`
 export const PlaceholderLoading = styled.div`
   display: flex;
   justify-content: center;
-  width: 250px;
-  height: 380px;
+  width: 314px;
+  height: 280px;
   border-radius: 10px 10px 0 0;
 
   svg {
