@@ -36,7 +36,6 @@ const SecondaryData: React.FC = () => {
   }
 
   const handleRemoveEditingResource = async () => {
-    console.log(id)
     await api.delete(`rpers/resources/${id}/${user.user_id}/secondary-data`)
   }
 
@@ -44,7 +43,6 @@ const SecondaryData: React.FC = () => {
     try {
       await api.put(`rpers/${id}/secondary-data`, {
         content: contentText,
-        editable: !readOnly,
       })
       await handleRemoveEditingResource()
       setReadOnly(true)

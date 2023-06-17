@@ -165,7 +165,7 @@ export const SubMenuItems = styled.div<SubMenuProps>`
     height: 100%;
 
     ${props => props.toggle && hide}
-  }
+  } ;
 `
 
 export const SectionsBtn = styled.div<SectionsButtonSelection>`

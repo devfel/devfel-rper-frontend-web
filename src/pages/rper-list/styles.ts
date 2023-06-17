@@ -263,15 +263,16 @@ export const Card = styled.article`
   }
 `
 export const PlaceholderLoading = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 314px;
+  height: 280px;
+  border-radius: 10px 10px 0 0;
 
   svg {
     width: 70px;
     height: 70px;
+    align-self: center;
     color: #c0c1c5;
   }
 `

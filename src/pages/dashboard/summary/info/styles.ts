@@ -41,27 +41,28 @@ export const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
 
-  img {
-    width: 100%;
-    height: 100%;
+  label {
+    cursor: pointer;
+    width: 250px;
+    height: 380px;
   }
 
-  label {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+  img {
+    width: 250px;
+    height: 380px;
+    object-fit: fill;
   }
 `
 export const PlaceholderLoading = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 250px;
+  height: 380px;
 
   svg {
     width: 70px;
     height: 70px;
+    align-self: center;
     color: #c0c1c5;
   }
 `
