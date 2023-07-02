@@ -4,9 +4,10 @@ import Menu from '../../../components/menu'
 import EditorComponent from '../editor-component'
 import { Content, Main } from '../styles'
 import { useParams, useBeforeUnload } from 'react-router-dom'
-import api from '../../../services/api'
+import api, { handleUploadImage } from '../../../services/api'
 import { useRper } from '../../../contexts/rper-context'
 import { useAuth } from '../../../contexts/auth-context'
+import { MAX_TIME_WITHOUT_EDITING } from '../../../utils/constants'
 
 const SecondaryData: React.FC = () => {
   const { id } = useParams()
@@ -14,8 +15,6 @@ const SecondaryData: React.FC = () => {
   const { user } = useAuth()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
-
-  const MAX_TIME_WITHOUT_EDITING = 3 * 60000
 
   const handleEditingResource = async (readonly: boolean) => {
     const isEditing = await findEditingResource(`${id}`, 'secondary-data')
@@ -50,29 +49,6 @@ const SecondaryData: React.FC = () => {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  const handleUploadImage = (files: any, info: any, uploadHandler: any) => {
-    const data = new FormData()
-
-    data.append('image', files[0])
-
-    api
-      .post('rpers/images', data)
-      .then(apiResponse => {
-        const response = {
-          result: [
-            {
-              url: apiResponse.data,
-              name: files[0].name,
-              size: files[0].size,
-            },
-          ],
-        }
-
-        uploadHandler(response)
-      })
-      .catch((error: any) => uploadHandler(error.toString()))
   }
 
   useEffect(() => {
