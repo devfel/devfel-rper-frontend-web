@@ -35,6 +35,18 @@ const EditorComponent: React.FC<TitleProp> = ({
   const hasPermissionToEdit =
     rper?.coordinator_id === user.user_id || isMember(rper, user.user_id)
 
+  const renderContent = () => {
+    if (title === 'SECONDARY DATA') {
+      return rper?.secondaryData.content as string
+    }
+
+    if (title === 'ACKNOWLEDGMENT') {
+      return rper?.acknowledgment.content as string
+    }
+
+    return ''
+  }
+
   return (
     <Container>
       <h2>
@@ -58,7 +70,7 @@ const EditorComponent: React.FC<TitleProp> = ({
       <TextEditor
         isReadOnly={isReadOnly}
         handleTextChange={handleTextChange}
-        content={rper?.secondaryData.content || ''}
+        content={renderContent()}
         handleUploadImage={handleUploadImage}
       />
     </Container>
