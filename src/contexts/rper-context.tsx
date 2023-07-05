@@ -13,11 +13,16 @@ interface SecondaryData {
   content: string
 }
 
+interface Acknowledgment {
+  content: string
+}
+
 export interface Rper {
   name: string
   coordinator_id: string
   rper_id: string
   secondaryData: SecondaryData
+  acknowledgment: Acknowledgment
   coordinator: User
   members: User[]
   background_url: string | undefined
