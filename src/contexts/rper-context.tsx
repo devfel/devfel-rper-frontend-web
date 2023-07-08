@@ -17,12 +17,17 @@ interface Acknowledgment {
   content: string
 }
 
+interface HistoricalMapping {
+  content: string
+}
+
 export interface Rper {
   name: string
   coordinator_id: string
   rper_id: string
   secondaryData: SecondaryData
   acknowledgment: Acknowledgment
+  historicalMapping: HistoricalMapping
   coordinator: User
   members: User[]
   background_url: string | undefined

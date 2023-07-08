@@ -44,6 +44,10 @@ const EditorComponent: React.FC<TitleProp> = ({
       return rper?.acknowledgment.content as string
     }
 
+    if (title === 'HISTORICAL MAPPING') {
+      return rper?.historicalMapping.content as string
+    }
+
     return ''
   }
 
