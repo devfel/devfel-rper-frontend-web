@@ -48,6 +48,10 @@ const EditorComponent: React.FC<TitleProp> = ({
       return rper?.historicalMapping.content as string
     }
 
+    if (title === 'TRANSECT WALK') {
+      return rper?.transectWalk.content as string
+    }
+
     return ''
   }
 
