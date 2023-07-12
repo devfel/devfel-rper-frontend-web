@@ -23,7 +23,6 @@ import api from '../../../services/api'
 
 const Summary: React.FC = () => {
   const { id } = useParams()
-  const [progress, setProgress] = useState(70)
   const { rper, findRper } = useRper()
   const { addToast } = useToast()
   const { logOut } = useAuth()
@@ -129,10 +128,10 @@ const Summary: React.FC = () => {
             <Progress>
               <h3>RPER Application Progress</h3>
               <ProgressBarContainer>
-                <ProgressBar progress={progress}>
+                <ProgressBar progress={rper?.progress as number}>
                   <div></div>
                 </ProgressBar>
-                <strong>{progress}%</strong>
+                <strong>{rper?.progress}%</strong>
               </ProgressBarContainer>
             </Progress>
             {/* <Carousel /> */}
