@@ -21,6 +21,10 @@ interface HistoricalMapping {
   content: string
 }
 
+interface TransectWalk {
+  content: string
+}
+        
 interface FinalConsideration {
   content: string
 }
@@ -32,6 +36,7 @@ export interface Rper {
   secondaryData: SecondaryData
   acknowledgment: Acknowledgment
   historicalMapping: HistoricalMapping
+  transectWalk: TransectWalk
   finalconsideration: FinalConsideration
   coordinator: User
   members: User[]

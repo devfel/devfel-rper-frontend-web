@@ -53,6 +53,10 @@ const EditorComponent: React.FC<TitleProp> = ({
       return rper?.finalconsideration.content as string
     }
 
+    if (title === 'TRANSECT WALK') {
+      return rper?.transectWalk.content as string
+    }
+
     return ''
   }
 
