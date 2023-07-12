@@ -21,6 +21,10 @@ interface HistoricalMapping {
   content: string
 }
 
+interface FinalConsideration {
+  content: string
+}
+
 export interface Rper {
   name: string
   coordinator_id: string
@@ -28,6 +32,7 @@ export interface Rper {
   secondaryData: SecondaryData
   acknowledgment: Acknowledgment
   historicalMapping: HistoricalMapping
+  finalconsideration: FinalConsideration
   coordinator: User
   members: User[]
   background_url: string | undefined

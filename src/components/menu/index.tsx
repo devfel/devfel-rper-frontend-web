@@ -282,12 +282,12 @@ const Menu = () => {
                 Extra Information
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'final-considerations'}>
+            <SectionsBtn isSelected={selectedButton === 'finalconsideration'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="final-considerations" />
-              <LinkBtn onClick={() => handleClick('final-considerations')}>
+              <StatusButton page="finalconsideration" />
+              <LinkBtn onClick={() => handleClick('finalconsideration')}>
                 Final Considerations
               </LinkBtn>
             </SectionsBtn>
