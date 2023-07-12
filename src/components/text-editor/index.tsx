@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SunEditor from 'suneditor-react'
 import SunEditorCore from 'suneditor/src/lib/core'
 import plugins from 'suneditor/src/plugins'
@@ -19,6 +19,7 @@ const TextEditor = ({
   handleUploadImage,
 }: TextEditorProps) => {
   const editor = useRef<SunEditorCore>()
+  const [height, setHeight] = useState('')
 
   useEffect(() => {
     editor.current?.readOnly(isReadOnly)
@@ -29,11 +30,16 @@ const TextEditor = ({
     editor.current = sunEditor
   }
 
+  const resizeComponent = () => {
+    const newHeight = content.split('\n').length * 20
+    setHeight(`${newHeight}px`)
+  }
+
   return (
     <Container>
       <SunEditor
+        key="sun-editor"
         getSunEditorInstance={getSunEditorInstance}
-        height="100vh"
         setOptions={{
           plugins: { ...plugins },
           buttonList: [
@@ -49,9 +55,11 @@ const TextEditor = ({
             ['fullScreen', 'preview', 'print'],
           ],
           formats: ['h1', 'h2', 'h3', 'p', 'div', 'blockquote', 'pre'],
+          minHeight: '100vh',
         }}
         onChange={handleTextChange}
         onImageUploadBefore={handleUploadImage}
+        onKeyUp={resizeComponent}
       />
     </Container>
   )
