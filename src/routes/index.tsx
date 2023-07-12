@@ -26,7 +26,7 @@ import InterviewFocusGroup from '../pages/dashboard/interview-focus-group'
 import RealityAndObjMatrix from '../pages/dashboard/reality-and-obj-matrix'
 import ElectionOfPriorities from '../pages/dashboard/election-of-priorities'
 import ExtraInformation from '../pages/dashboard/extra-information'
-import FinalConsiderations from '../pages/dashboard/final-considerations'
+import FinalConsideration from '../pages/dashboard/finalconsideration'
 import Acknowledgment from '../pages/dashboard/acknowledgment'
 import GenerateFinalReport from '../pages/dashboard/generate-final-report'
 import NotFoundPage from '../pages/not-found-page'
@@ -118,8 +118,8 @@ function Router() {
               element={<ExtraInformation />}
             />
             <Route
-              path="/dashboard/final-considerations/:id"
-              element={<FinalConsiderations />}
+              path="/dashboard/finalconsideration/:id"
+              element={<FinalConsideration />}
             />
             <Route
               path="/dashboard/acknowledgment/:id"

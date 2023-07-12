@@ -17,12 +17,17 @@ interface Acknowledgment {
   content: string
 }
 
+interface FinalConsideration {
+  content: string
+}
+
 export interface Rper {
   name: string
   coordinator_id: string
   rper_id: string
   secondaryData: SecondaryData
   acknowledgment: Acknowledgment
+  finalconsideration: FinalConsideration
   coordinator: User
   members: User[]
   background_url: string | undefined
