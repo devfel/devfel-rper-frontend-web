@@ -8,11 +8,13 @@ import api, { handleUploadImage } from '../../../services/api'
 import { useRper } from '../../../contexts/rper-context'
 import { useAuth } from '../../../contexts/auth-context'
 import { MAX_TIME_WITHOUT_EDITING } from '../../../utils/constants'
+import { useToast } from '../../../contexts/toast-context'
 
 const FinalConsideration: React.FC = () => {
   const { id } = useParams()
   const { rper, findRper, findEditingResource } = useRper()
   const { user } = useAuth()
+  const { addToast } = useToast()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
 
@@ -47,6 +49,12 @@ const FinalConsideration: React.FC = () => {
       setReadOnly(true)
       findRper(`${id}`)
     } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Saving content',
+        description:
+          'Oops! Something wrong happening while saving content. Please try again',
+      })
       console.log(error)
     }
   }
