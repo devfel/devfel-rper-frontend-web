@@ -44,6 +44,11 @@ const EditorComponent: React.FC<TitleProp> = ({
       return rper?.acknowledgment.content as string
     }
 
+
+    if (title === 'HISTORICAL MAPPING') {
+      return rper?.historicalMapping.content as string
+    }
+    
     if (title === 'FINAL CONSIDERATIONS') {
       return rper?.finalconsideration.content as string
     }
