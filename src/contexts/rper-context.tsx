@@ -24,7 +24,7 @@ interface HistoricalMapping {
 interface TransectWalk {
   content: string
 }
-
+        
 interface FinalConsideration {
   content: string
 }
@@ -43,7 +43,6 @@ export interface Rper {
   background_url: string | undefined
   created_at: string
   updated_at: string
-  progress: number
 }
 
 interface EditingResource {
