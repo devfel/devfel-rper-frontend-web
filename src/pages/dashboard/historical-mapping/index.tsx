@@ -8,11 +8,13 @@ import { MAX_TIME_WITHOUT_EDITING } from '../../../utils/constants'
 import EditorComponent from '../editor-component'
 import { Main, Content } from '../styles'
 import Menu from '../../../components/menu'
+import { useToast } from '../../../contexts/toast-context'
 
 const HistoricalMapping: React.FC = () => {
   const { id } = useParams()
   const { rper, findRper, findEditingResource } = useRper()
   const { user } = useAuth()
+  const { addToast } = useToast()
   const [contentText, setContentText] = useState('')
   const [readOnly, setReadOnly] = useState(true)
 
@@ -46,7 +48,13 @@ const HistoricalMapping: React.FC = () => {
       await handleRemoveEditingResource()
       setReadOnly(true)
       findRper(`${id}`)
-    } catch (error) {
+    } catch (error: any) {
+      addToast({
+        type: 'error',
+        title: 'Saving content',
+        description:
+          'Oops! Something wrong happening while saving content. Please try again',
+      })
       console.log(error)
     }
   }
