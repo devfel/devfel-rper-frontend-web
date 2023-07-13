@@ -48,13 +48,69 @@ const EditorComponent: React.FC<TitleProp> = ({
     if (title === 'HISTORICAL MAPPING') {
       return rper?.historicalMapping.content as string
     }
-    
+
     if (title === 'FINAL CONSIDERATIONS') {
       return rper?.finalconsideration.content as string
     }
 
     if (title === 'TRANSECT WALK') {
       return rper?.transectWalk.content as string
+    }
+
+    if (title === 'THEMES FRAMEWORK') {
+      return rper?.themesframework.content as string
+    }
+
+    if (title === 'OTHER PREPARATION') {
+      return rper?.otherpreparation.content as string
+    }
+
+    if (title === 'INTERVIEWS') {
+      return rper?.interviews.content as string
+    }
+
+    if (title === 'PRESENTATION') {
+      return rper?.presentation.content as string
+    }
+
+    if (title === 'VENN DIAGRAM') {
+      return rper?.venndiagram.content as string
+    }
+
+    if (title === 'SEASONAL CALENDAR') {
+      return rper?.seasonalcalendar.content as string
+    }
+
+    if (title === 'DAILY ROUTINE') {
+      return rper?.dailyroutine.content as string
+    }
+
+    if (title === 'INPUT AND OUTPUT') {
+      return rper?.inputandoutput.content as string
+    }
+
+    if (title === 'CONSTRUCTION') {
+      return rper?.construction.content as string
+    }
+
+    if (title === 'FOCUS GROUP') {
+      return rper?.focusgroup.content as string
+    }
+
+    if (title === 'REALITY AND OBJ. MATRIX') {
+      return rper?.realityandobjmatrix.content as string
+    }
+
+    if (title === 'PRIORITIES ELECTION') {
+      return rper?.prioritieselection.content as string
+    }
+
+    if (title === 'OTHER FIELDWORK') {
+      return rper?.otherfieldwork.content as string
+    }
+
+    if (title === 'EXTRA INFORMATION') {
+      return rper?.extrainformation.content as string
     }
 
     return ''

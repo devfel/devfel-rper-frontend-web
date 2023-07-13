@@ -29,6 +29,62 @@ interface FinalConsideration {
   content: string
 }
 
+interface ThemesFramework {
+  content: string
+}
+
+interface OtherPreparation {
+  content: string
+}
+
+interface Interviews {
+  content: string
+}
+
+interface Presentation {
+  content: string
+}
+
+interface VennDiagram {
+  content: string
+}
+
+interface SeasonalCalendar {
+  content: string
+}
+
+interface DailyRoutine {
+  content: string
+}
+
+interface InputAndOutput {
+  content: string
+}
+
+interface Construction {
+  content: string
+}
+
+interface FocusGroup {
+  content: string
+}
+
+interface RealityAndObjMatrix {
+  content: string
+}
+
+interface PrioritiesElection {
+  content: string
+}
+
+interface OtherFieldwork {
+  content: string
+}
+
+interface ExtraInformation {
+  content: string
+}
+
 export interface Rper {
   name: string
   coordinator_id: string
@@ -38,6 +94,20 @@ export interface Rper {
   historicalMapping: HistoricalMapping
   transectWalk: TransectWalk
   finalconsideration: FinalConsideration
+  themesframework: ThemesFramework
+  otherpreparation: OtherPreparation
+  interviews: Interviews
+  presentation: Presentation
+  venndiagram: VennDiagram
+  seasonalcalendar: SeasonalCalendar
+  dailyroutine: DailyRoutine
+  inputandoutput: InputAndOutput
+  construction: Construction
+  focusgroup: FocusGroup
+  realityandobjmatrix: RealityAndObjMatrix
+  prioritieselection: PrioritiesElection
+  otherfieldwork: OtherFieldwork
+  extrainformation: ExtraInformation
   coordinator: User
   members: User[]
   background_url: string | undefined

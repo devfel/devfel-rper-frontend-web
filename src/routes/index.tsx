@@ -9,25 +9,25 @@ import Profile from '../pages/profile'
 import Summary from '../pages/dashboard/summary'
 import Team from '../pages/dashboard/team'
 import SecondaryData from '../pages/dashboard/secondary-data'
-import ContactCollectivity from '../pages/dashboard/contact-collectivity'
-import InterviewGuide from '../pages/dashboard/interview-guide'
-import FocusGroupGuide from '../pages/dashboard/focus-group-guide'
-import ThemesFramework from '../pages/dashboard/themes-framework'
-import TasksAndCalendar from '../pages/dashboard/tasks-and-calendar'
-import CollectivityRegistration from '../pages/dashboard/collectivity-registration'
-import Presentation from '../pages/dashboard/presentation'
 import HistoricalMapping from '../pages/dashboard/historical-mapping'
 import TransectWalk from '../pages/dashboard/transect-walk'
-import VennDiagram from '../pages/dashboard/venn-diagram'
-import SeasonalCalendar from '../pages/dashboard/seasonal-calendar'
-import DailyRoutines from '../pages/dashboard/daily-routines'
-import InputAndOutput from '../pages/dashboard/input-and-output'
-import InterviewFocusGroup from '../pages/dashboard/interview-focus-group'
-import RealityAndObjMatrix from '../pages/dashboard/reality-and-obj-matrix'
-import ElectionOfPriorities from '../pages/dashboard/election-of-priorities'
-import ExtraInformation from '../pages/dashboard/extra-information'
 import FinalConsideration from '../pages/dashboard/finalconsideration'
 import Acknowledgment from '../pages/dashboard/acknowledgment'
+import ThemesFramework from '../pages/dashboard/themesframework'
+import OtherPreparation from '../pages/dashboard/otherpreparation'
+import Interviews from '../pages/dashboard/interviews'
+import Presentation from '../pages/dashboard/presentation'
+import VennDiagram from '../pages/dashboard/venndiagram'
+import SeasonalCalendar from '../pages/dashboard/seasonalcalendar'
+import DailyRoutine from '../pages/dashboard/dailyroutine'
+import InputAndOutput from '../pages/dashboard/inputandoutput'
+import Construction from '../pages/dashboard/construction'
+import FocusGroup from '../pages/dashboard/focusgroup'
+import RealityAndObjMatrix from '../pages/dashboard/realityandobjmatrix'
+import PrioritiesElection from '../pages/dashboard/prioritieselection'
+import OtherFieldwork from '../pages/dashboard/otherfieldwork'
+import ExtraInformation from '../pages/dashboard/extrainformation'
+
 import GenerateFinalReport from '../pages/dashboard/generate-final-report'
 import NotFoundPage from '../pages/not-found-page'
 
@@ -50,28 +50,8 @@ function Router() {
           />
           <Route>
             <Route
-              path="/dashboard/contact-collectivity/:id"
-              element={<ContactCollectivity />}
-            />
-            <Route
-              path="/dashboard/interview-guide/:id"
-              element={<InterviewGuide />}
-            />
-            <Route
-              path="/dashboard/focus-group-guide/:id"
-              element={<FocusGroupGuide />}
-            />
-            <Route
-              path="/dashboard/themes-framework/:id"
+              path="/dashboard/themesframework/:id"
               element={<ThemesFramework />}
-            />
-            <Route
-              path="/dashboard/tasks-and-calendar/:id"
-              element={<TasksAndCalendar />}
-            />
-            <Route
-              path="/dashboard/collectivity-registration/:id"
-              element={<CollectivityRegistration />}
             />
             <Route
               path="/dashboard/presentation/:id"
@@ -86,40 +66,56 @@ function Router() {
               element={<TransectWalk />}
             />
             <Route
-              path="/dashboard/venn-diagram/:id"
+              path="/dashboard/venndiagram/:id"
               element={<VennDiagram />}
             />
             <Route
-              path="/dashboard/seasonal-calendar/:id"
+              path="/dashboard/seasonalcalendar/:id"
               element={<SeasonalCalendar />}
             />
             <Route
-              path="/dashboard/daily-routines/:id"
-              element={<DailyRoutines />}
+              path="/dashboard/dailyroutine/:id"
+              element={<DailyRoutine />}
             />
             <Route
-              path="/dashboard/input-and-output/:id"
+              path="/dashboard/inputandoutput/:id"
               element={<InputAndOutput />}
             />
             <Route
-              path="/dashboard/interview-focus-group/:id"
-              element={<InterviewFocusGroup />}
+              path="/dashboard/interviews/:id"
+              element={<Interviews />}
             />
             <Route
-              path="/dashboard/reality-and-obj-matrix/:id"
+              path="/dashboard/focusgroup/:id"
+              element={<FocusGroup />}
+            />
+            <Route
+              path="/dashboard/realityandobjmatrix/:id"
               element={<RealityAndObjMatrix />}
             />
             <Route
-              path="/dashboard/election-of-priorities/:id"
-              element={<ElectionOfPriorities />}
+              path="/dashboard/prioritieselection/:id"
+              element={<PrioritiesElection />}
             />
             <Route
-              path="/dashboard/extra-information/:id"
+              path="/dashboard/extrainformation/:id"
               element={<ExtraInformation />}
             />
             <Route
               path="/dashboard/finalconsideration/:id"
               element={<FinalConsideration />}
+            />
+            <Route
+              path="/dashboard/otherpreparation/:id"
+              element={<OtherPreparation />}
+            />
+            <Route
+              path="/dashboard/construction/:id"
+              element={<Construction />}
+            />
+            <Route
+              path="/dashboard/otherfieldwork/:id"
+              element={<OtherFieldwork />}
             />
             <Route
               path="/dashboard/acknowledgment/:id"

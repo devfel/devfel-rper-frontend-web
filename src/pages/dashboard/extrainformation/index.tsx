@@ -10,7 +10,7 @@ import { useAuth } from '../../../contexts/auth-context'
 import { MAX_TIME_WITHOUT_EDITING } from '../../../utils/constants'
 import { useToast } from '../../../contexts/toast-context'
 
-const Presentation: React.FC = () => {
+const ExtraInformation: React.FC = () => {
   const { id } = useParams()
   const { rper, findRper, findEditingResource } = useRper()
   const { user } = useAuth()
@@ -19,7 +19,7 @@ const Presentation: React.FC = () => {
   const [readOnly, setReadOnly] = useState(true)
 
   const handleEditingResource = async (readonly: boolean) => {
-    const isEditing = await findEditingResource(`${id}`, 'presentation')
+    const isEditing = await findEditingResource(`${id}`, 'extrainformation')
     if (isEditing) {
       window.alert('Este recurso já está sendo editado')
       return
@@ -28,7 +28,7 @@ const Presentation: React.FC = () => {
     await api.post('rpers/resources', {
       rper_id: id,
       user_id: user.user_id,
-      resource: 'presentation',
+      resource: 'extrainformation',
     })
 
     findRper(`${id}`)
@@ -37,12 +37,12 @@ const Presentation: React.FC = () => {
   }
 
   const handleRemoveEditingResource = async () => {
-    await api.delete(`rpers/resources/${id}/${user.user_id}/presentation`)
+    await api.delete(`rpers/resources/${id}/${user.user_id}/extrainformation`)
   }
 
   const handleSave = async () => {
     try {
-      await api.put(`rpers/${id}/presentation`, {
+      await api.put(`rpers/${id}/extrainformation`, {
         content: contentText,
       })
       await handleRemoveEditingResource()
@@ -88,7 +88,7 @@ const Presentation: React.FC = () => {
         <Menu />
         <Content>
           <EditorComponent
-            title={'PRESENTATION'}
+            title={'EXTRA INFORMATION'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}
@@ -102,4 +102,4 @@ const Presentation: React.FC = () => {
   )
 }
 
-export default Presentation
+export default ExtraInformation

@@ -100,49 +100,22 @@ const Menu = () => {
                 Secondary Data
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'contact-collectivity'}>
+            <SectionsBtn isSelected={selectedButton === 'themesframework'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="contact-collectivity" />
-              <LinkBtn onClick={() => handleClick('contact-collectivity')}>
-                Contact Collectivity
-              </LinkBtn>
-            </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'interview-guide'}>
-              <IconBtn>
-                <RiExchangeFill />
-              </IconBtn>
-              <StatusButton page="interview-guide" />
-              <LinkBtn onClick={() => handleClick('interview-guide')}>
-                Interview Guide
-              </LinkBtn>
-            </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'focus-group-guide'}>
-              <IconBtn>
-                <RiExchangeFill />
-              </IconBtn>
-              <StatusButton page="focus-group-guide" />
-              <LinkBtn onClick={() => handleClick('focus-group-guide')}>
-                Focus Group Guide
-              </LinkBtn>
-            </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'themes-framework'}>
-              <IconBtn>
-                <RiExchangeFill />
-              </IconBtn>
-              <StatusButton page="themes-framework" />
-              <LinkBtn onClick={() => handleClick('themes-framework')}>
+              <StatusButton page="themesframework" />
+              <LinkBtn onClick={() => handleClick('themesframework')}>
                 Themes Framework
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'tasks-and-calendar'}>
+            <SectionsBtn isSelected={selectedButton === 'otherpreparation'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="tasks-and-calendar" />
-              <LinkBtn onClick={() => handleClick('tasks-and-calendar')}>
-                Tasks and Calendar
+              <StatusButton page="otherpreparation" />
+              <LinkBtn onClick={() => handleClick('otherpreparation')}>
+                Other Preparation
               </LinkBtn>
             </SectionsBtn>
           </SubMenuItems>
@@ -155,14 +128,14 @@ const Menu = () => {
           </SubMenuTitle>
           <SubMenuItems toggle={toggleFieldwork}>
             <SectionsBtn
-              isSelected={selectedButton === 'collectivity-registration'}
+              isSelected={selectedButton === 'interviews'}
             >
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="collectivity-registration" />
-              <LinkBtn onClick={() => handleClick('collectivity-registration')}>
-                Collectivity Registration
+              <StatusButton page="interviews" />
+              <LinkBtn onClick={() => handleClick('interviews')}>
+                Interviews
               </LinkBtn>
             </SectionsBtn>
             <SectionsBtn isSelected={selectedButton === 'presentation'}>
@@ -192,73 +165,93 @@ const Menu = () => {
                 Transect Walk
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'venn-diagram'}>
+            <SectionsBtn isSelected={selectedButton === 'venndiagram'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="venn-diagram" />
-              <LinkBtn onClick={() => handleClick('venn-diagram')}>
+              <StatusButton page="venndiagram" />
+              <LinkBtn onClick={() => handleClick('venndiagram')}>
                 Venn Diagram
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'seasonal-calendar'}>
+            <SectionsBtn isSelected={selectedButton === 'seasonalcalendar'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="seasonal-calendar" />
-              <LinkBtn onClick={() => handleClick('seasonal-calendar')}>
+              <StatusButton page="seasonalcalendar" />
+              <LinkBtn onClick={() => handleClick('seasonalcalendar')}>
                 Seasonal Calendar
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'daily-routines'}>
+            <SectionsBtn isSelected={selectedButton === 'dailyroutine'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="daily-routines" />
-              <LinkBtn onClick={() => handleClick('daily-routines')}>
-                Daily Routines
+              <StatusButton page="dailyroutine" />
+              <LinkBtn onClick={() => handleClick('dailyroutine')}>
+                Daily Routine
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn isSelected={selectedButton === 'input-and-output'}>
+            <SectionsBtn isSelected={selectedButton === 'inputandoutput'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="input-and-output" />
-              <LinkBtn onClick={() => handleClick('input-and-output')}>
+              <StatusButton page="inputandoutput" />
+              <LinkBtn onClick={() => handleClick('inputandoutput')}>
                 Input and Output
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn
-              isSelected={selectedButton === 'interview-focus-group'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'construction'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="interview-focus-group" />
-              <LinkBtn onClick={() => handleClick('interview-focus-group')}>
-                Interview & Focus Group
+              <StatusButton page="construction" />
+              <LinkBtn onClick={() => handleClick('construction')}>
+                Construction
               </LinkBtn>
             </SectionsBtn>
             <SectionsBtn
-              isSelected={selectedButton === 'reality-and-obj-Matrix'}
+              isSelected={selectedButton === 'focusgroup'}
             >
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="reality-and-obj-Matrix" />
-              <LinkBtn onClick={() => handleClick('reality-and-obj-Matrix')}>
+              <StatusButton page="focusgroup" />
+              <LinkBtn onClick={() => handleClick('focusgroup')}>
+                Focus Group
+              </LinkBtn>
+            </SectionsBtn>
+            <SectionsBtn
+              isSelected={selectedButton === 'realityandobjmatrix'}
+            >
+              <IconBtn>
+                <RiExchangeFill />
+              </IconBtn>
+              <StatusButton page="realityandobjmatrix" />
+              <LinkBtn onClick={() => handleClick('realityandobjmatrix')}>
                 Reality and Obj. Matrix
               </LinkBtn>
             </SectionsBtn>
             <SectionsBtn
-              isSelected={selectedButton === 'election-of-priorities'}
+              isSelected={selectedButton === 'prioritieselection'}
             >
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="election-of-priorities" />
-              <LinkBtn onClick={() => handleClick('election-of-priorities')}>
-                Election of Priorities
+              <StatusButton page="prioritieselection" />
+              <LinkBtn onClick={() => handleClick('prioritieselection')}>
+                Priorities Election
+              </LinkBtn>
+            </SectionsBtn>
+            <SectionsBtn
+              isSelected={selectedButton === 'otherfieldwork'}
+            >
+              <IconBtn>
+                <RiExchangeFill />
+              </IconBtn>
+              <StatusButton page="otherfieldwork" />
+              <LinkBtn onClick={() => handleClick('otherfieldwork')}>
+                Other Fieldwork
               </LinkBtn>
             </SectionsBtn>
           </SubMenuItems>
@@ -273,12 +266,12 @@ const Menu = () => {
             <IoMdArrowDropdown />
           </SubMenuTitle>
           <SubMenuItems toggle={toggleFinalization}>
-            <SectionsBtn isSelected={selectedButton === 'extra-information'}>
+            <SectionsBtn isSelected={selectedButton === 'extrainformation'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
-              <StatusButton page="extra-information" />
-              <LinkBtn onClick={() => handleClick('extra-information')}>
+              <StatusButton page="extrainformation" />
+              <LinkBtn onClick={() => handleClick('extrainformation')}>
                 Extra Information
               </LinkBtn>
             </SectionsBtn>
