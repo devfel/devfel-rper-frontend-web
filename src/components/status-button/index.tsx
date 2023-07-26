@@ -8,6 +8,7 @@ import {
 import { Container, StatusList } from './styles'
 import { useParams } from 'react-router-dom'
 import api from '../../services/api'
+import { useRper } from '../../contexts/rper-context'
 
 interface StatusButtonProps {
   page: string
@@ -16,6 +17,7 @@ interface StatusButtonProps {
 const StatusButton: React.FC<StatusButtonProps> = ({ page }) => {
   const [status, setStatus] = useState('unstarted')
   const { id } = useParams()
+  const { findRper } = useRper()
 
   useEffect(() => {
     const getRperSectionStatus = async () => {
@@ -37,6 +39,7 @@ const StatusButton: React.FC<StatusButtonProps> = ({ page }) => {
         new_status: status,
       })
       setStatus(status)
+      findRper(`${id}`)
     } catch (error) {
       console.log(error)
     }
