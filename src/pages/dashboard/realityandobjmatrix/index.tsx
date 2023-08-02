@@ -37,7 +37,9 @@ const RealityAndObjMatrix: React.FC = () => {
   }
 
   const handleRemoveEditingResource = async () => {
-    await api.delete(`rpers/resources/${id}/${user.user_id}/realityandobjmatrix`)
+    await api.delete(
+      `rpers/resources/${id}/${user.user_id}/realityandobjmatrix`,
+    )
   }
 
   const handleSave = async () => {
