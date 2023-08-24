@@ -4,8 +4,40 @@ import Menu from '../../../components/menu'
 import { Content, Main } from '../styles'
 import { ActionButtons, Container } from './styles'
 import Button from '../../../components/button'
+import api from '../../../services/api'
+import { useParams } from 'react-router-dom'
+import { useToast } from '../../../contexts/toast-context'
 
 const GenerateFinalReport: React.FC = () => {
+  const { id } = useParams()
+  const { addToast } = useToast()
+
+  const generateDocFile = async () => {
+    try {
+      const response = await api.get(`/rpers/${id}/report`, {
+        responseType: 'blob',
+      })
+
+      const downloadUrl = window.URL.createObjectURL(response.data)
+      const link = document.createElement('a')
+
+      link.href = downloadUrl
+
+      link.setAttribute('download', `${id}-${new Date().getTime()}.docx`) // Defina o nome do arquivo como desejar
+      document.body.appendChild(link)
+      link.click()
+    } catch (error) {
+      addToast({
+        type: 'error',
+        title: 'Saving content',
+        description:
+          'Oops! Something wrong happening while download your report. Please try again',
+      })
+
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <Header />
@@ -26,8 +58,8 @@ const GenerateFinalReport: React.FC = () => {
               </p>
             </div>
             <ActionButtons>
-              <Button>Word</Button>
-              <Button>PDF</Button>
+              <Button onClick={generateDocFile}>Doc file</Button>
+              {/* <Button>PDF</Button> */}
             </ActionButtons>
           </Container>
         </Content>
