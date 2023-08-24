@@ -93,25 +93,25 @@ const Summary: React.FC = () => {
                 </section>
                 {rper?.members && rper?.members.length > 0
                   ? rper?.members.map(member => (
-                    <section key={member.user_id}>
-                      <div>
-                        {member.avatar_url ? (
-                          <Avatar>
-                            <img
-                              src={member.avatar_url}
-                              alt="Avatar do coordenador"
-                            />
-                          </Avatar>
-                        ) : (
-                          <PlaceholderLoading>
-                            <div></div>
-                            <div></div>
-                          </PlaceholderLoading>
-                        )}
-                      </div>
-                      <strong>{member.name}</strong>
-                    </section>
-                  ))
+                      <section key={member.user_id}>
+                        <div>
+                          {member.avatar_url ? (
+                            <Avatar>
+                              <img
+                                src={member.avatar_url}
+                                alt="Avatar do coordenador"
+                              />
+                            </Avatar>
+                          ) : (
+                            <PlaceholderLoading>
+                              <div></div>
+                              <div></div>
+                            </PlaceholderLoading>
+                          )}
+                        </div>
+                        <strong>{member.name}</strong>
+                      </section>
+                    ))
                   : null}
               </article>
             </Team>

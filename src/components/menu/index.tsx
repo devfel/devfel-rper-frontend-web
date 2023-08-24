@@ -127,9 +127,7 @@ const Menu = () => {
             <IoMdArrowDropdown />
           </SubMenuTitle>
           <SubMenuItems toggle={toggleFieldwork}>
-            <SectionsBtn
-              isSelected={selectedButton === 'interviews'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'interviews'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
@@ -210,9 +208,7 @@ const Menu = () => {
                 Construction
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn
-              isSelected={selectedButton === 'focusgroup'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'focusgroup'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
@@ -221,9 +217,7 @@ const Menu = () => {
                 Focus Group
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn
-              isSelected={selectedButton === 'realityandobjmatrix'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'realityandobjmatrix'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
@@ -232,9 +226,7 @@ const Menu = () => {
                 Reality and Obj. Matrix
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn
-              isSelected={selectedButton === 'prioritieselection'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'prioritieselection'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>
@@ -243,9 +235,7 @@ const Menu = () => {
                 Priorities Election
               </LinkBtn>
             </SectionsBtn>
-            <SectionsBtn
-              isSelected={selectedButton === 'otherfieldwork'}
-            >
+            <SectionsBtn isSelected={selectedButton === 'otherfieldwork'}>
               <IconBtn>
                 <RiExchangeFill />
               </IconBtn>

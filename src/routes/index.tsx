@@ -81,14 +81,8 @@ function Router() {
               path="/dashboard/inputandoutput/:id"
               element={<InputAndOutput />}
             />
-            <Route
-              path="/dashboard/interviews/:id"
-              element={<Interviews />}
-            />
-            <Route
-              path="/dashboard/focusgroup/:id"
-              element={<FocusGroup />}
-            />
+            <Route path="/dashboard/interviews/:id" element={<Interviews />} />
+            <Route path="/dashboard/focusgroup/:id" element={<FocusGroup />} />
             <Route
               path="/dashboard/realityandobjmatrix/:id"
               element={<RealityAndObjMatrix />}
