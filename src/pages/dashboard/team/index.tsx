@@ -148,7 +148,7 @@ const Team: React.FC = () => {
               </TeamHeader>
               <MemberCard>
                 <AvatarContainer>
-                  {rper?.coordinator ? (
+                  {rper?.coordinator.avatar_url ? (
                     <img
                       src={rper.coordinator.avatar_url}
                       alt={`${rper.coordinator.name}'s profile image`}
@@ -169,49 +169,49 @@ const Team: React.FC = () => {
               </MemberCard>
               {rper?.members && rper.members.length > 0
                 ? rper.members.map(member => (
-                    <MemberCard key={member.user_id}>
-                      <AvatarContainer>
-                        {member.avatar_url ? (
-                          <img
-                            src={member.avatar_url}
-                            alt={`${member.name}'s profile image`}
-                          />
-                        ) : (
-                          <PlaceholderLoading>
-                            <div></div>
-                            <div></div>
-                          </PlaceholderLoading>
-                        )}
-                      </AvatarContainer>
-                      <MemberInfoContainer>
-                        <strong>{member.name}</strong>
-                        <span>
-                          <CoordinatorButtonsManagementContainer>
-                            {/* <PromoteToCoordinatorButton
+                  <MemberCard key={member.user_id}>
+                    <AvatarContainer>
+                      {member.avatar_url ? (
+                        <img
+                          src={member.avatar_url}
+                          alt={`${member.name}'s profile image`}
+                        />
+                      ) : (
+                        <PlaceholderLoading>
+                          <div></div>
+                          <div></div>
+                        </PlaceholderLoading>
+                      )}
+                    </AvatarContainer>
+                    <MemberInfoContainer>
+                      <strong>{member.name}</strong>
+                      <span>
+                        <CoordinatorButtonsManagementContainer>
+                          {/* <PromoteToCoordinatorButton
                               onClick={() =>
                                 handleTransferCoordinator(member.name)
                               }
                             >
                               <BiCrown />
                             </PromoteToCoordinatorButton> */}
-                            {isCoordinator ? (
-                              <RemoveMemberButton
-                                onClick={() =>
-                                  handleConfirmRemoveMember({
-                                    member_id: member.user_id,
-                                    member_name: member.name,
-                                    rper_id: rper.rper_id,
-                                  })
-                                }
-                              >
-                                <IoMdRemove />
-                              </RemoveMemberButton>
-                            ) : null}
-                          </CoordinatorButtonsManagementContainer>
-                        </span>
-                      </MemberInfoContainer>
-                    </MemberCard>
-                  ))
+                          {isCoordinator ? (
+                            <RemoveMemberButton
+                              onClick={() =>
+                                handleConfirmRemoveMember({
+                                  member_id: member.user_id,
+                                  member_name: member.name,
+                                  rper_id: rper.rper_id,
+                                })
+                              }
+                            >
+                              <IoMdRemove />
+                            </RemoveMemberButton>
+                          ) : null}
+                        </CoordinatorButtonsManagementContainer>
+                      </span>
+                    </MemberInfoContainer>
+                  </MemberCard>
+                ))
                 : null}
             </TeamContainer>
 
