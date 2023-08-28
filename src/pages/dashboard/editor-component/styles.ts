@@ -26,6 +26,20 @@ export const Container = styled.div`
       pointer-events: none;
     }
   }
+
+  .help-icon {
+    border-radius: 50%;
+    vertical-align: middle;
+
+
+    a {
+      display: inline-block;
+
+      svg {
+        color: #02004d;  // Red question mark
+      }
+    }
+  }
 `
 
 export const ActionButtons = styled.div`

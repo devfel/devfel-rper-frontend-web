@@ -6,9 +6,11 @@ import { ActionButtons, Container } from './styles'
 import { Rper } from '../../../contexts/rper-context'
 import { isMember } from '../../../utils/is-rper-member'
 import { useAuth } from '../../../contexts/auth-context'
+import { FaQuestionCircle } from 'react-icons/fa';
 
 interface TitleProp {
   title: string
+  helpLink?: string;
   isReadOnly: boolean
   rper: Rper | null
   handleTextChange: (text: string) => void
@@ -19,6 +21,7 @@ interface TitleProp {
 
 const EditorComponent: React.FC<TitleProp> = ({
   title,
+  helpLink,
   handleSave,
   handleTextChange,
   handleReadOnly,
@@ -120,6 +123,13 @@ const EditorComponent: React.FC<TitleProp> = ({
       <h2>
         <RiExchangeFill />
         {title}
+        {helpLink && (
+          <span className="help-icon">
+            <a href={helpLink} target="_blank" rel="noopener noreferrer">
+              <FaQuestionCircle size={30} />
+            </a>
+          </span>
+        )}
       </h2>
       <ActionButtons>
         <Button
