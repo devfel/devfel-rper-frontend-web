@@ -27,7 +27,7 @@ import RealityAndObjMatrix from '../pages/dashboard/realityandobjmatrix'
 import PrioritiesElection from '../pages/dashboard/prioritieselection'
 import OtherFieldwork from '../pages/dashboard/otherfieldwork'
 import ExtraInformation from '../pages/dashboard/extrainformation'
-import HelpPage from '../components/HelpPage';
+import HelpPage from '../components/HelpPage'
 import {
   SecondaryDataContent,
   ThemesFrameworkContent,
@@ -48,8 +48,7 @@ import {
   ExtraInformationContent,
   FinalConsiderationsContent,
   AcknowledgmentContent,
-} from '../components/HelpContent';
-
+} from '../components/HelpContent'
 
 import GenerateFinalReport from '../pages/dashboard/generate-final-report'
 import NotFoundPage from '../pages/not-found-page'
@@ -63,25 +62,82 @@ function Router() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route element={<Protected />}>
-          <Route path="/help/secondary-data" element={<HelpPage content={SecondaryDataContent} />} />
-          <Route path="/help/themes-framework" element={<HelpPage content={ThemesFrameworkContent} />} />
-          <Route path="/help/other-preparation" element={<HelpPage content={OtherPreparationContent} />} />
-          <Route path="/help/interviews" element={<HelpPage content={InterviewsContent} />} />
-          <Route path="/help/presentation" element={<HelpPage content={PresentationContent} />} />
-          <Route path="/help/historical-mapping" element={<HelpPage content={HistoricalMappingContent} />} />
-          <Route path="/help/transect-walk" element={<HelpPage content={TransectWalkContent} />} />
-          <Route path="/help/venn-diagram" element={<HelpPage content={VennDiagramContent} />} />
-          <Route path="/help/seasonal-calendar" element={<HelpPage content={SeasonalCalendarContent} />} />
-          <Route path="/help/daily-routine" element={<HelpPage content={DailyRoutineContent} />} />
-          <Route path="/help/input-and-output" element={<HelpPage content={InputAndOutputContent} />} />
-          <Route path="/help/construction" element={<HelpPage content={ConstructionContent} />} />
-          <Route path="/help/focus-group" element={<HelpPage content={FocusGroupContent} />} />
-          <Route path="/help/reality-and-obj-matrix" element={<HelpPage content={RealityAndObjMatrixContent} />} />
-          <Route path="/help/priorities-election" element={<HelpPage content={PrioritiesElectionContent} />} />
-          <Route path="/help/other-fieldwork" element={<HelpPage content={OtherFieldworkContent} />} />
-          <Route path="/help/extra-information" element={<HelpPage content={ExtraInformationContent} />} />
-          <Route path="/help/final-considerations" element={<HelpPage content={FinalConsiderationsContent} />} />
-          <Route path="/help/acknowledgment" element={<HelpPage content={AcknowledgmentContent} />} />
+          <Route
+            path="/help/secondary-data"
+            element={<HelpPage content={SecondaryDataContent} />}
+          />
+          <Route
+            path="/help/themes-framework"
+            element={<HelpPage content={ThemesFrameworkContent} />}
+          />
+          <Route
+            path="/help/other-preparation"
+            element={<HelpPage content={OtherPreparationContent} />}
+          />
+          <Route
+            path="/help/interviews"
+            element={<HelpPage content={InterviewsContent} />}
+          />
+          <Route
+            path="/help/presentation"
+            element={<HelpPage content={PresentationContent} />}
+          />
+          <Route
+            path="/help/historical-mapping"
+            element={<HelpPage content={HistoricalMappingContent} />}
+          />
+          <Route
+            path="/help/transect-walk"
+            element={<HelpPage content={TransectWalkContent} />}
+          />
+          <Route
+            path="/help/venn-diagram"
+            element={<HelpPage content={VennDiagramContent} />}
+          />
+          <Route
+            path="/help/seasonal-calendar"
+            element={<HelpPage content={SeasonalCalendarContent} />}
+          />
+          <Route
+            path="/help/daily-routine"
+            element={<HelpPage content={DailyRoutineContent} />}
+          />
+          <Route
+            path="/help/input-and-output"
+            element={<HelpPage content={InputAndOutputContent} />}
+          />
+          <Route
+            path="/help/construction"
+            element={<HelpPage content={ConstructionContent} />}
+          />
+          <Route
+            path="/help/focus-group"
+            element={<HelpPage content={FocusGroupContent} />}
+          />
+          <Route
+            path="/help/reality-and-obj-matrix"
+            element={<HelpPage content={RealityAndObjMatrixContent} />}
+          />
+          <Route
+            path="/help/priorities-election"
+            element={<HelpPage content={PrioritiesElectionContent} />}
+          />
+          <Route
+            path="/help/other-fieldwork"
+            element={<HelpPage content={OtherFieldworkContent} />}
+          />
+          <Route
+            path="/help/extra-information"
+            element={<HelpPage content={ExtraInformationContent} />}
+          />
+          <Route
+            path="/help/final-considerations"
+            element={<HelpPage content={FinalConsiderationsContent} />}
+          />
+          <Route
+            path="/help/acknowledgment"
+            element={<HelpPage content={AcknowledgmentContent} />}
+          />
 
           <Route path="/rper-list" element={<RperList />} />
           <Route path="/profile" element={<Profile />} />

@@ -31,18 +31,16 @@ export const Container = styled.div`
     border-radius: 50%;
     vertical-align: middle;
 
-
     a {
       display: inline-block;
 
       &:hover svg {
-        color: #01003a;  // Slightly darker shade on hover
+        color: #01003a; // Slightly darker shade on hover
       }
       svg {
-        color: #02004d;  // Blue question mark
+        color: #02004d; // Blue question mark
       }
     }
-
   }
 `
 

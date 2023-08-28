@@ -89,7 +89,7 @@ const ThemesFramework: React.FC = () => {
         <Content>
           <EditorComponent
             title={'THEMES FRAMEWORK'}
-            helpLink={"/help/themes-framework"}
+            helpLink={'/help/themes-framework'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

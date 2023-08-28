@@ -1,134 +1,134 @@
-import React from 'react';
+import React from 'react'
 
 export const SecondaryDataContent: React.ReactNode = (
-    <>
-        SecondaryDataContent
-        {/* ... */}
-    </>
-);
+  <>
+    SecondaryDataContent
+    {/* ... */}
+  </>
+)
 
 export const ThemesFrameworkContent: React.ReactNode = (
-    <>
-        ThemesFrameworkContent
-        {/* ... */}
-    </>
-);
+  <>
+    ThemesFrameworkContent
+    {/* ... */}
+  </>
+)
 
 export const OtherPreparationContent: React.ReactNode = (
-    <>
-        OtherPreparationContent
-        {/* ... */}
-    </>
-);
+  <>
+    OtherPreparationContent
+    {/* ... */}
+  </>
+)
 
 export const InterviewsContent: React.ReactNode = (
-    <>
-        InterviewsContent
-        {/* ... */}
-    </>
-);
+  <>
+    InterviewsContent
+    {/* ... */}
+  </>
+)
 
 export const PresentationContent: React.ReactNode = (
-    <>
-        PresentationContent
-        {/* ... */}
-    </>
-);
+  <>
+    PresentationContent
+    {/* ... */}
+  </>
+)
 
 export const HistoricalMappingContent: React.ReactNode = (
-    <>
-        HistoricalMappingContent
-        {/* ... */}
-    </>
-);
+  <>
+    HistoricalMappingContent
+    {/* ... */}
+  </>
+)
 
 export const TransectWalkContent: React.ReactNode = (
-    <>
-        TransectWalkContent
-        {/* ... */}
-    </>
-);
+  <>
+    TransectWalkContent
+    {/* ... */}
+  </>
+)
 
 export const VennDiagramContent: React.ReactNode = (
-    <>
-        VennDiagramContent
-        {/* ... */}
-    </>
-);
+  <>
+    VennDiagramContent
+    {/* ... */}
+  </>
+)
 
 export const SeasonalCalendarContent: React.ReactNode = (
-    <>
-        SeasonalCalendarContent
-        {/* ... */}
-    </>
-);
+  <>
+    SeasonalCalendarContent
+    {/* ... */}
+  </>
+)
 
 export const DailyRoutineContent: React.ReactNode = (
-    <>
-        DailyRoutineContent
-        {/* ... */}
-    </>
-);
+  <>
+    DailyRoutineContent
+    {/* ... */}
+  </>
+)
 
 export const InputAndOutputContent: React.ReactNode = (
-    <>
-        InputAndOutputContent
-        {/* ... */}
-    </>
-);
+  <>
+    InputAndOutputContent
+    {/* ... */}
+  </>
+)
 
 export const ConstructionContent: React.ReactNode = (
-    <>
-        ConstructionContent
-        {/* ... */}
-    </>
-);
+  <>
+    ConstructionContent
+    {/* ... */}
+  </>
+)
 
 export const FocusGroupContent: React.ReactNode = (
-    <>
-        FocusGroupContent
-        {/* ... */}
-    </>
-);
+  <>
+    FocusGroupContent
+    {/* ... */}
+  </>
+)
 
 export const RealityAndObjMatrixContent: React.ReactNode = (
-    <>
-        RealityAndObjMatrixContent
-        {/* ... */}
-    </>
-);
+  <>
+    RealityAndObjMatrixContent
+    {/* ... */}
+  </>
+)
 
 export const PrioritiesElectionContent: React.ReactNode = (
-    <>
-        PrioritiesElectionContent
-        {/* ... */}
-    </>
-);
+  <>
+    PrioritiesElectionContent
+    {/* ... */}
+  </>
+)
 
 export const OtherFieldworkContent: React.ReactNode = (
-    <>
-        OtherFieldworkContent
-        {/* ... */}
-    </>
-);
+  <>
+    OtherFieldworkContent
+    {/* ... */}
+  </>
+)
 
 export const ExtraInformationContent: React.ReactNode = (
-    <>
-        ExtraInformationContent
-        {/* ... */}
-    </>
-);
+  <>
+    ExtraInformationContent
+    {/* ... */}
+  </>
+)
 
 export const FinalConsiderationsContent: React.ReactNode = (
-    <>
-        FinalConsiderationsContent
-        {/* ... */}
-    </>
-);
+  <>
+    FinalConsiderationsContent
+    {/* ... */}
+  </>
+)
 
 export const AcknowledgmentContent: React.ReactNode = (
-    <>
-        AcknowledgmentContent
-        {/* ... */}
-    </>
-);
+  <>
+    AcknowledgmentContent
+    {/* ... */}
+  </>
+)

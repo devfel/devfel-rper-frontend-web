@@ -89,7 +89,7 @@ const Interviews: React.FC = () => {
         <Content>
           <EditorComponent
             title={'INTERVIEWS'}
-            helpLink={"/help/interviews"}
+            helpLink={'/help/interviews'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

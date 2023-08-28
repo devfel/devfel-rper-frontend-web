@@ -89,7 +89,7 @@ const Presentation: React.FC = () => {
         <Content>
           <EditorComponent
             title={'PRESENTATION'}
-            helpLink={"/help/presentation"}
+            helpLink={'/help/presentation'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

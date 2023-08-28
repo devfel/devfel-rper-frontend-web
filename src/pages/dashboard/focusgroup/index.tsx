@@ -89,7 +89,7 @@ const FocusGroup: React.FC = () => {
         <Content>
           <EditorComponent
             title={'FOCUS GROUP'}
-            helpLink={"/help/focus-group"}
+            helpLink={'/help/focus-group'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

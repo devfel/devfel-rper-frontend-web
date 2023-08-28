@@ -89,7 +89,7 @@ const PrioritiesElection: React.FC = () => {
         <Content>
           <EditorComponent
             title={'PRIORITIES ELECTION'}
-            helpLink={"/help/priorities-election"}
+            helpLink={'/help/priorities-election'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

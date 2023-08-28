@@ -10,7 +10,11 @@ const api = axios.create({
 
 export default api
 
-export const handleUploadImage = (files: any, info: any, uploadHandler: any) => {
+export const handleUploadImage = (
+  files: any,
+  info: any,
+  uploadHandler: any,
+) => {
   const data = new FormData()
 
   data.append('image', files[0])

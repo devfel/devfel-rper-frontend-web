@@ -89,7 +89,7 @@ const SeasonalCalendar: React.FC = () => {
         <Content>
           <EditorComponent
             title={'SEASONAL CALENDAR'}
-            helpLink={"/help/seasonal-calendar"}
+            helpLink={'/help/seasonal-calendar'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

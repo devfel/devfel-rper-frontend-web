@@ -88,7 +88,7 @@ const TransectWalk: React.FC = () => {
         <Content>
           <EditorComponent
             title={'TRANSECT WALK'}
-            helpLink={"/help/transect-walk"}
+            helpLink={'/help/transect-walk'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

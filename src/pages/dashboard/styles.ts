@@ -200,11 +200,11 @@ export const LinkBtn = styled.button`
 `
 
 export const Content = styled.div`
-  width: 95vw; 
+  width: 95vw;
   grid-area: content;
 
   @media screen and (min-width: 768px) {
-    width: 98%; 
+    width: 98%;
   }
 
   @media screen and (min-width: 1024px) {
