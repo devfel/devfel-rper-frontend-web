@@ -35,10 +35,14 @@ export const Container = styled.div`
     a {
       display: inline-block;
 
+      &:hover svg {
+        color: #01003a;  // Slightly darker shade on hover
+      }
       svg {
-        color: #02004d;  // Red question mark
+        color: #02004d;  // Blue question mark
       }
     }
+
   }
 `
 

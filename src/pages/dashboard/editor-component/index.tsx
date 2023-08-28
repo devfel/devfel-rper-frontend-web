@@ -125,7 +125,7 @@ const EditorComponent: React.FC<TitleProp> = ({
         {title}
         {helpLink && (
           <span className="help-icon">
-            <a href={helpLink} target="_blank" rel="noopener noreferrer">
+            <a href={helpLink} target="_blank" rel="noopener noreferrer" title="Explore this technique">
               <FaQuestionCircle size={30} />
             </a>
           </span>
