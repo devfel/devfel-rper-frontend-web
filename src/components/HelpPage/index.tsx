@@ -8,7 +8,7 @@ interface HelpPageProps {
 const HelpPage: React.FC<HelpPageProps> = ({ content }) => {
   return (
     <Container>
-      <h1>Help</h1>
+      <h1 className="rper-title">RPER - Helping Guide</h1>
       {content}
     </Container>
   )
