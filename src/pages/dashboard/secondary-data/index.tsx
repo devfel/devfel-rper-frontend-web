@@ -88,7 +88,7 @@ const SecondaryData: React.FC = () => {
         <Content>
           <EditorComponent
             title={'SECONDARY DATA'}
-            helpLink={'https://www.google.com/'}
+            helpLink={'/help/secondary-data'}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}
