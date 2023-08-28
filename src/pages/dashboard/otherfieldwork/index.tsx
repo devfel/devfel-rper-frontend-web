@@ -89,6 +89,7 @@ const OtherFieldwork: React.FC = () => {
         <Content>
           <EditorComponent
             title={'OTHER FIELDWORK'}
+            helpLink={"/help/other-fieldwork"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

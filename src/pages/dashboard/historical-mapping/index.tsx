@@ -88,6 +88,7 @@ const HistoricalMapping: React.FC = () => {
         <Content>
           <EditorComponent
             title={'HISTORICAL MAPPING'}
+            helpLink={"/help/historical-mapping"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

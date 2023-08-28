@@ -89,6 +89,7 @@ const Construction: React.FC = () => {
         <Content>
           <EditorComponent
             title={'CONSTRUCTION'}
+            helpLink={"/help/construction"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

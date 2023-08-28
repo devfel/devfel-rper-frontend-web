@@ -89,6 +89,7 @@ const InputAndOutput: React.FC = () => {
         <Content>
           <EditorComponent
             title={'INPUT AND OUTPUT'}
+            helpLink={"/help/input-and-output"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

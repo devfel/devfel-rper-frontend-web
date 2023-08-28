@@ -91,6 +91,7 @@ const RealityAndObjMatrix: React.FC = () => {
         <Content>
           <EditorComponent
             title={'REALITY AND OBJ. MATRIX'}
+            helpLink={"/help/reality-and-obj-matrix"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

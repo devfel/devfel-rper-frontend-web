@@ -89,6 +89,7 @@ const OtherPreparation: React.FC = () => {
         <Content>
           <EditorComponent
             title={'OTHER PREPARATION'}
+            helpLink={"/help/other-preparation"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

@@ -89,6 +89,7 @@ const VennDiagram: React.FC = () => {
         <Content>
           <EditorComponent
             title={'VENN DIAGRAM'}
+            helpLink={"/help/venn-diagram"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

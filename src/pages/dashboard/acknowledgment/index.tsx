@@ -89,6 +89,7 @@ const Acknowledgment: React.FC = () => {
         <Content>
           <EditorComponent
             title={'ACKNOWLEDGMENT'}
+            helpLink={"/help/acknowledgment"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

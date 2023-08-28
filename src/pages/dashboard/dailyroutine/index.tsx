@@ -89,6 +89,7 @@ const DailyRoutine: React.FC = () => {
         <Content>
           <EditorComponent
             title={'DAILY ROUTINE'}
+            helpLink={"/help/daily-routine"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

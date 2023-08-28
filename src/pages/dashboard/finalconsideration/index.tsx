@@ -88,6 +88,7 @@ const FinalConsideration: React.FC = () => {
         <Content>
           <EditorComponent
             title={'FINAL CONSIDERATIONS'}
+            helpLink={"/help/final-considerations"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}

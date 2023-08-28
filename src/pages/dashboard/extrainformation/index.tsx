@@ -89,6 +89,7 @@ const ExtraInformation: React.FC = () => {
         <Content>
           <EditorComponent
             title={'EXTRA INFORMATION'}
+            helpLink={"/help/extra-information"}
             handleTextChange={setContentText}
             handleSave={handleSave}
             isReadOnly={readOnly}
