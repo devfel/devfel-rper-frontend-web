@@ -107,10 +107,34 @@ export const ThemesFrameworkContent: React.ReactNode = (
 )
 
 export const OtherPreparationContent: React.ReactNode = (
-  <>
-    OtherPreparationContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Other Preparation</Title>
+
+    <Text>
+      Following the collection of secondary data, it`s crucial to ensure that
+      all other preparations are in place before commencing with fieldwork. This
+      phase involves finalizing the logistics, scheduling interviews, setting up
+      equipment, and ensuring that the interdisciplinary team is well-briefed
+      and aligned with the research objectives. It`s also a time to address any
+      gaps identified during the secondary data collection phase, ensuring a
+      comprehensive and seamless fieldwork experience.
+    </Text>
+
+    <Text>
+      Communication with the community is also pivotal during this stage.
+      Keeping them informed and ensuring their active participation sets the
+      tone for the forthcoming stages. It`s also good practice to review the
+      collected secondary data and themes framework developed one more time,
+      ensuring that all data points are considered during the fieldwork.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
 // --------------------------------------------- //
