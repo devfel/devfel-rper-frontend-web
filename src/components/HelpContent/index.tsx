@@ -13,6 +13,8 @@ import communityOfficialMap from '../../assets/content-imgs/historical-mapping-c
 import communityAndMap from '../../assets/content-imgs/historical-mapping-community-and-map.jpg'
 import transectWalkMap from '../../assets/content-imgs/transect-walk-map.jpg'
 import transectWalkCommunity from '../../assets/content-imgs/transect-walk-community.jpg'
+import constructionGroup from '../../assets/content-imgs/construction-group.jpg'
+import constructionMaterials from '../../assets/content-imgs/construction-materials.jpg'
 
 // -------------------------------------------------- //
 // ----------------- SECONDARY DATA ----------------- //
@@ -442,10 +444,89 @@ export const InputAndOutputContent: React.ReactNode = (
 // ----------------- CONSTRUCTION ----------------- //
 // ------------------------------------------------ //
 export const ConstructionContent: React.ReactNode = (
-  <>
-    ConstructionContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Construction Technique</Title>
+
+    <Text>
+      The Construction technique promotes critical reflection within a community
+      about their current infrastructure conditions and what they aspire to
+      `construct` in the near future with the limited resources available. It
+      serves as both a diagnostic and a planning tool, encouraging the community
+      to envision the construction of their future.
+    </Text>
+
+    <Text>
+      <strong>Objective:</strong> To stimulate communities to critically
+      visualize and plan for their future infrastructure needs using symbolic
+      resources.
+    </Text>
+
+    <Text>
+      Typically, symbolic resources found at the diagnosis location, such as
+      stones, sticks, leaves, twigs, etc., are used. This technique is executed
+      in small groups that share some cultural identity, like neighbors,
+      individuals who partake in mutual aid or labor exchange, or any form of
+      solidarity in the organization of work and production.
+    </Text>
+
+    <ImageWrapper>
+      <img
+        src={constructionGroup}
+        alt="Group of people discussing around symbolic resources"
+      />
+      <div className="tooltip">
+        Group of people discussing around symbolic resources
+      </div>
+    </ImageWrapper>
+
+    <Text>
+      The interdisciplinary team explains the objective of the technique,
+      setting a challenge for each group to ponder about the future of their own
+      group and the entire community. Once the activity is explained and the
+      challenge presented to participants, the interdisciplinary team
+      distributes an equal amount of symbolic resources to each group, setting a
+      timeframe for the desired `construction`, representing their perception of
+      the future.
+    </Text>
+
+    <Text>
+      The team monitors the process, capturing photographs, filming, and noting
+      down participants` remarks from each group that convey the intent of their
+      ongoing `construction`. After the stipulated time, participants from each
+      group explain to everyone the significance of their construction, which
+      stimulates debate and critical reflections around a given theme framework.
+      This provides an opportunity for everyone to understand each group`s and
+      individual`s vision for the community`s future.
+    </Text>
+
+    <ImageWrapper>
+      <img
+        src={constructionMaterials}
+        alt="Symbolic materials laid out for construction technique"
+      />
+      <div className="tooltip">
+        Symbolic materials laid out for construction technique
+      </div>
+    </ImageWrapper>
+
+    <Text>
+      This technique has been employed in various situations and contexts. For
+      instance, during the resettlement of families affected by the Candonga dam
+      in Santa Cruz do Escalvado, Minas Gerais, Brazil. This technique was
+      utilized to represent the ideal type of housing in the perception of the
+      affected groups. Therefore, the challenge for participants was to identify
+      the ideal construction type and its territorial organization in the new
+      landscape, considering the limited resources available.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Rapid Participatory Emancipatory Research: The
+        RPER Method.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
 // ----------------------------------------------- //
