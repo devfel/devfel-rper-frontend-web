@@ -40,6 +40,7 @@ export const SecondaryDataContent: React.ReactNode = (
         src="https://plus.unsplash.com/premium_photo-1661297441050-cd5f9980051d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
         alt="Bar Chart illustrating secondary data"
       />
+      <div className="tooltip">Bar Chart illustrating secondary data</div>
     </ImageWrapper>
 
     <Text>
@@ -73,6 +74,7 @@ export const SecondaryDataContent: React.ReactNode = (
         src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80"
         alt="Book representing data sourcing"
       />
+      <div className="tooltip">Book representing data sourcing</div>
     </ImageWrapper>
 
     <Text>
@@ -111,18 +113,52 @@ export const OtherPreparationContent: React.ReactNode = (
   </>
 )
 
+// --------------------------------------------- //
+// ----------------- INTERVIEW ----------------- //
+// --------------------------------------------- //
 export const InterviewsContent: React.ReactNode = (
-  <>
-    InterviewsContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Semi-structured Interviews</Title>
+
+    <Text>
+      Interviews, or in this case, particularly Semi-structured Interviews offer
+      a balance between structured and open-ended questions. They allow for the
+      objective comparison of opinions while providing flexibility to explore
+      topics spontaneously. Prior knowledge about the interviewee and the topic
+      ensures a more in-depth and focused discussion.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ------------------------------------------------ //
+// ----------------- PRESENTATION ----------------- //
+// ------------------------------------------------ //
 export const PresentationContent: React.ReactNode = (
-  <>
-    PresentationContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>
+      Presentation of the Interdisciplinary Team and Members of the Community
+    </Title>
+
+    <Text>
+      This technique aims to identify the participants, including personal
+      details, a bit of their personal history and history with the collectivity
+      along other relevant information.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
 // ------------------------------------------------------ //
@@ -153,6 +189,9 @@ export const HistoricalMappingContent: React.ReactNode = (
         src={communityDrawing}
         alt="Community members collaboratively drawing a map"
       />
+      <div className="tooltip">
+        Community members collaboratively drawing a map
+      </div>
     </ImageWrapper>
 
     <Text>
@@ -165,6 +204,7 @@ export const HistoricalMappingContent: React.ReactNode = (
 
     <ImageWrapper>
       <img src={communityAndMap} alt="Community members with the  map" />
+      <div className="tooltip">Community members with the map</div>
     </ImageWrapper>
 
     <Text>
@@ -185,6 +225,9 @@ export const HistoricalMappingContent: React.ReactNode = (
         src={communityOfficialMap}
         alt="An official segmented map of a rural settlement"
       />
+      <div className="tooltip">
+        An official segmented map of a rural settlement
+      </div>
     </ImageWrapper>
 
     <Text>
@@ -197,8 +240,7 @@ export const HistoricalMappingContent: React.ReactNode = (
     <ReferencesWrapper>
       <ReferencesTitle>References & Bibliography</ReferencesTitle>
       <ReferencesText>
-        Pereira, J. R. (2017). Rapid Participatory Emancipatory Research: The
-        RPER Method.
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
       </ReferencesText>
     </ReferencesWrapper>
   </ContentWrapper>
@@ -234,6 +276,7 @@ export const TransectWalkContent: React.ReactNode = (
         src={transectWalkMap}
         alt="Graphical representation of a trajectory for one transect walk defined by the community "
       />
+      <div className="tooltip">Trajectory for a community transect walk</div>
     </ImageWrapper>
 
     <Text>
@@ -258,6 +301,7 @@ export const TransectWalkContent: React.ReactNode = (
         src={transectWalkCommunity}
         alt="Community members explaining a point of interest during the transect walk"
       />
+      <div className="tooltip">Community members during a transect walk</div>
     </ImageWrapper>
 
     <Text>
@@ -271,41 +315,108 @@ export const TransectWalkContent: React.ReactNode = (
     <ReferencesWrapper>
       <ReferencesTitle>References & Bibliography</ReferencesTitle>
       <ReferencesText>
-        Pereira, J. R. (2017). Rapid Participatory Emancipatory Research: The
-        RPER Method.
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
       </ReferencesText>
     </ReferencesWrapper>
   </ContentWrapper>
 )
 
+// ------------------------------------------------ //
+// ----------------- VENN DIAGRAM ----------------- //
+// ------------------------------------------------ //
 export const VennDiagramContent: React.ReactNode = (
-  <>
-    VennDiagramContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Venn Diagram</Title>
+
+    <Text>
+      The Venn Diagram technique is used to identify and evaluate the
+      significance and performance of public and private organizations within a
+      community or organization. It visually represents the interrelationship of
+      these entities and how they impact the community.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ----------------------------------------------------- //
+// ----------------- SEASONAL CALENDAR ----------------- //
+// ----------------------------------------------------- //
 export const SeasonalCalendarContent: React.ReactNode = (
-  <>
-    SeasonalCalendarContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Seasonal Calendar</Title>
+
+    <Text>
+      The Seasonal Calendar technique visualizes all of the organization`s
+      activities over a year. This graphical representation helps in
+      understanding the cyclical patterns and determining the best times for
+      specific interventions or initiatives.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ------------------------------------------------- //
+// ----------------- DAILY ROUTINE ----------------- //
+// ------------------------------------------------- //
 export const DailyRoutineContent: React.ReactNode = (
-  <>
-    DailyRoutineContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Daily Routine Analysis</Title>
+
+    <Text>
+      The Daily Routine technique identifies day-to-day activities and the
+      division of labor within an organization, rural or not. By mapping out
+      these routines, one can plan future activities more effectively and
+      identify areas for operational improvements.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ---------------------------------------------------- //
+// ----------------- INPUT AND OUTPUT ----------------- //
+// ---------------------------------------------------- //
 export const InputAndOutputContent: React.ReactNode = (
-  <>
-    InputAndOutputContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Input and Output Analysis</Title>
+
+    <Text>
+      The Input and Output technique delves into understanding the production
+      system`s dynamics in relation to its market context. By analyzing the
+      economic activities and their relationships, one can gain insights into
+      the efficiency and areas of improvement within the organization and its
+      system.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ------------------------------------------------ //
+// ----------------- CONSTRUCTION ----------------- //
+// ------------------------------------------------ //
 export const ConstructionContent: React.ReactNode = (
   <>
     ConstructionContent
@@ -313,51 +424,166 @@ export const ConstructionContent: React.ReactNode = (
   </>
 )
 
+// ----------------------------------------------- //
+// ----------------- FOCUS GROUP ----------------- //
+// ----------------------------------------------- //
 export const FocusGroupContent: React.ReactNode = (
-  <>
-    FocusGroupContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Focus Group</Title>
+
+    <Text>
+      The Focus Group technique aims to gather qualitative information on
+      specific themes. By having a focused and predetermined discussion, it
+      captures the collective perspective, providing richer insights into the
+      community`s needs and aspirations.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// -------------------------------------------------- //
+// ------------- REALITY AND OBJ MATRIX ------------- //
+// -------------------------------------------------- //
 export const RealityAndObjMatrixContent: React.ReactNode = (
-  <>
-    RealityAndObjMatrixContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Reality and Objective Matrix</Title>
+
+    <Text>
+      The Reality and Objective Matrix technique is crucial for problem-solving.
+      It identifies challenges, their root causes, and potential solutions from
+      the participants` perspective, ensuring that interventions are tailored to
+      the community`s actual needs.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ----------------------------------------------- //
+// ------------- PRIORITIES ELECTION ------------- //
+// ----------------------------------------------- //
 export const PrioritiesElectionContent: React.ReactNode = (
-  <>
-    PrioritiesElectionContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Priorities Election</Title>
+
+    <Text>
+      Priorities Election is a democratic process to identify the participants`
+      socio-economic, political, and technical-productive priorities. By
+      understanding these priorities, interventions and programs can be better
+      aligned with the community`s aspirations.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ------------------------------------------- //
+// ------------- OTHER FIELDWORK ------------- //
+// ------------------------------------------- //
 export const OtherFieldworkContent: React.ReactNode = (
-  <>
-    OtherFieldworkContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Other Fieldwork Techniques</Title>
+
+    <Text>
+      While many fieldwork techniques are already encompassed in the RPER
+      method, its theory allows for adaptability. Depending on the collective
+      needs, certain techniques can be included or omitted, ensuring that the
+      research process remains flexible and context-specific.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ------------------------------------------------- //
+// --------------- EXTRA INFORMATION --------------- //
+// ------------------------------------------------- //
 export const ExtraInformationContent: React.ReactNode = (
-  <>
-    ExtraInformationContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Extra Information</Title>
+
+    <Text>
+      This section is dedicated to providing supplementary details that might
+      not fit into the main content but are essential for a comprehensive
+      understanding of the study. It may include additional methodologies,
+      references, or contextual data that adds depth and breadth to the primary
+      findings.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// ---------------------------------------------------- //
+// --------------- FINAL CONSIDERATIONS --------------- //
+// ---------------------------------------------------- //
 export const FinalConsiderationsContent: React.ReactNode = (
-  <>
-    FinalConsiderationsContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Final Considerations</Title>
+
+    <Text>
+      The journey through the RPER method can be insightful, revealing the
+      intricacies and nuances of the community under study. This section
+      reflects on the overarching themes, findings, and implications of the
+      research. It serves as a synthesis of the work done, highlighting its
+      significance and suggesting potential avenues for future exploration.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
+// -------------------------------------------------- //
+// ----------------- ACKNOWLEDGMENT ----------------- //
+// -------------------------------------------------- //
 export const AcknowledgmentContent: React.ReactNode = (
-  <>
-    AcknowledgmentContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Acknowledgment</Title>
+
+    <Text>
+      The success of the research would not have been possible without the
+      collaborative efforts of the community, the interdisciplinary team, and
+      all stakeholders involved. This section expresses gratitude to everyone
+      who contributed their time, expertise, resources, and insights to make the
+      project a success.
+    </Text>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )

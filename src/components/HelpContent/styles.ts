@@ -27,10 +27,35 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  position: relative;
 
   img {
     max-width: 100%;
     border-radius: 10px;
+    z-index: 999;
+  }
+
+  img:hover + .tooltip,
+  .tooltip:hover {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip {
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 94%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    transition: opacity 0.3s, visibility 0.3s;
   }
 `
 // New styles for the references section
@@ -38,7 +63,7 @@ export const ReferencesWrapper = styled.div`
   max-width: 900px;
   width: 100%;
   padding: 15px;
-  background-color: #eaeaea;  // Slightly different background for distinction
+  background-color: #eaeaea; // Slightly different background for distinction
   border-radius: 12px;
   margin-top: 20px;
   margin-bottom: 20px;
