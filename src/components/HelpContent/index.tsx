@@ -15,6 +15,8 @@ import transectWalkMap from '../../assets/content-imgs/transect-walk-map.jpg'
 import transectWalkCommunity from '../../assets/content-imgs/transect-walk-community.jpg'
 import constructionGroup from '../../assets/content-imgs/construction-group.jpg'
 import constructionMaterials from '../../assets/content-imgs/construction-materials.jpg'
+import themeFrameworkTeam from '../../assets/content-imgs/theme-framework-team.jpg'
+import themeFrameworkTable from '../../assets/content-imgs/theme-framework-table.png'
 
 // -------------------------------------------------- //
 // ----------------- SECONDARY DATA ----------------- //
@@ -102,10 +104,81 @@ export const SecondaryDataContent: React.ReactNode = (
 // ----------------- THEMES FRAMEWORK ----------------- //
 // ---------------------------------------------------- //
 export const ThemesFrameworkContent: React.ReactNode = (
-  <>
-    ThemesFrameworkContent
-    {/* ... */}
-  </>
+  <ContentWrapper>
+    <Title>Themes Framework Technique</Title>
+
+    <Text>
+      Themes are often referred to as `generated themes` because, regardless of
+      how they are understood or the actions they inspire, they inherently hold
+      the possibility of branching out into numerous other themes. Each
+      subsequent theme then sparks new tasks that need to be addressed. This
+      concept is well-articulated by Freire (1971).
+    </Text>
+
+    <Text>
+      <strong>Preparation:</strong> To express and describe reality as the first
+      step of diagnosis, the interdisciplinary team must develop potential
+      generated themes about the social group`s reality based on secondary
+      information. The aim is to form a themes framework to further the dialogic
+      process, promote reflections on the participants` own practices, and serve
+      as a foundation for detailing the historical context of the targeted
+      social group across social, political, cultural, economic, and
+      environmental dimensions.
+    </Text>
+
+    <ImageWrapper>
+      <img
+        src={themeFrameworkTeam}
+        alt="Interdisciplinary team brainstorming on generated theme"
+      />
+      <div className="tooltip">
+        Interdisciplinary team brainstorming on generated themes
+      </div>
+    </ImageWrapper>
+
+    <Text>
+      <strong>Procedure:</strong> This themes framework should be constructed by
+      the interdisciplinary team using secondary information. Each generated
+      theme should correspond to a set of reflective questions, a set of
+      observations to be made in fieldwork, and the respective information
+      collection techniques and group dynamics to be utilized.
+    </Text>
+
+    <Text>
+      RPER aims to explore the generated themes both qualitatively and
+      quantitatively, considering them as a collective rather than in isolation.
+      This approach lends a `holistic` nature to the information gathering
+      process in analyses and evaluations. Together, these generated themes form
+      the `themes universe` of the participating actors or the targeted
+      collectivity.
+    </Text>
+
+    <Text>
+      <strong>Case Study:</strong>As an example, the following framework was
+      developed for executing RPER within a meat sheep alliance in Florida, USA.
+      This framework was collaboratively created by all members of the
+      interdisciplinary team during the preparatory phase preceding the
+      implementation of RPER.
+    </Text>
+
+    <ImageWrapper>
+      <img
+        src={themeFrameworkTable}
+        alt="Meat Sheep Alliance of Florida themes framework"
+      />
+      <div className="tooltip">
+        Meat Sheep Alliance of Florida themes framework
+      </div>
+    </ImageWrapper>
+
+    <ReferencesWrapper>
+      <ReferencesTitle>References & Bibliography</ReferencesTitle>
+      <ReferencesText>
+        Pereira, J. R. (2017). Diagnóstico Participativo O método DRPE.
+      </ReferencesText>
+      <ReferencesText>Freire, P. (1971). Pedagogia do oprimido.</ReferencesText>
+    </ReferencesWrapper>
+  </ContentWrapper>
 )
 
 export const OtherPreparationContent: React.ReactNode = (
