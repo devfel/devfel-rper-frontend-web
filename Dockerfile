@@ -13,6 +13,9 @@ RUN npm install
 # Step 5: Copy the rest of the application code
 COPY . .
 
+# Step 5.5: set the memory to 4 gigas
+ENV NODE_OPTIONS=--max-old-space-size=4096
+
 # Step 6: Build the app
 RUN npm run build
 
